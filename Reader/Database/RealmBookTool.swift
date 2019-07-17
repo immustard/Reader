@@ -27,34 +27,44 @@ extension RealmBookTool {
         var books: Array<BookModel> = []
 
         for book in list {
-            let model = p_transformContent(book)
+            book.content = MSTTools.loadContentFromFile(filePath: MSTTools.homePath() + book.cachePath)
 
-            books.append(model)
+            books.append(book)
         }
         return books
     }
     
     class func query(byResource resource: String) -> BookModel? {
-        let list = _db.objects(BookModel.self)
+        let list = _db.objects(BookModel.self).filter("resource = '\(resource)'")
 
         if let model = list.first {
-            return p_transformContent(model)
+            model.content = MSTTools.loadContentFromFile(filePath: MSTTools.homePath() + model.cachePath)
+            
+            return p_loadChapters(model)
         } else {
             return nil
         }
+    }
+    
+    class func queryBookName(byID id: Int) -> String? {
+        return _db.object(ofType: BookModel.self, forPrimaryKey: id)?.title
     }
 }
 
 extension RealmBookTool {
     // MARK - Private Methods
-    private class func p_transformContent(_ book: BookModel) -> BookModel {
-        let model = BookModel()
-        model.id = book.id
-        model.title = book.title
-        model.content = MSTTools.loadContentFromFile(filePath: MSTTools.homePath() + book.content)
-        model.resource = book.resource
-        model.readType = book.readType
+    private class func p_loadChapters(_ book: BookModel) -> BookModel {
+        let tBook = book.copy() as! BookModel
+
+        var arr: Array<ChapterModel> = []
+        for chapter in tBook.chapters {
+            chapter.realm?.beginWrite()
+            chapter.content = MSTTools.loadContentFromFile(filePath: MSTTools.homePath() + chapter.cachePath)
+            try! chapter.realm?.commitWrite()
+            arr.append(chapter)
+        }
+        tBook.chapters.append(objectsIn: arr)
         
-        return model
+        return tBook
     }
 }

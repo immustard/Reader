@@ -14,17 +14,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        do {
-            try FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
-        } catch {}
-        
-        let url = Bundle.main.url(forResource: "mdjyml", withExtension: "txt")!
-        
-        ReadUtilities.localBookModel(byURL: url) { (book) in
-            print(book)
-        }
+        let btn = UIButton(type: .custom)
+        btn.setTitle("txt", for: .normal)
+        btn.backgroundColor = kColor999
+        btn.frame = CGRect(x: 0, y: 150, width: 100, height: 100)
+        btn.mst_centerX = kScreenWidth/2
+        btn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        view.addSubview(btn)
     }
 
-
+    // MARK: - Actions
+    @objc func buttonAction() {
+        let vc = ChapterReadVC()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 

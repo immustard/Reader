@@ -34,6 +34,7 @@
 		D30E4D6D22DD674400B5D4DA /* UIView_MST.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D6522DD674400B5D4DA /* UIView_MST.swift */; };
 		D30E4D7222DD68CB00B5D4DA /* RealmBookTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D7122DD68CB00B5D4DA /* RealmBookTool.swift */; };
 		D318A0E522DDB738004C2FE0 /* RealmChapterTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D318A0E422DDB738004C2FE0 /* RealmChapterTool.swift */; };
+		D36AEF4F22DEBD16009AE08A /* ReadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36AEF4E22DEBD16009AE08A /* ReadView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		D30E4D6522DD674400B5D4DA /* UIView_MST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView_MST.swift; sourceTree = "<group>"; };
 		D30E4D7122DD68CB00B5D4DA /* RealmBookTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBookTool.swift; sourceTree = "<group>"; };
 		D318A0E422DDB738004C2FE0 /* RealmChapterTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmChapterTool.swift; sourceTree = "<group>"; };
+		D36AEF4E22DEBD16009AE08A /* ReadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 		D30E4D2222DD5BD500B5D4DA /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D36AEF4D22DEBD0B009AE08A /* View */,
 				D30E4D4822DD5D8C00B5D4DA /* Model */,
 				D30E4D3822DD5C3B00B5D4DA /* Controller */,
 			);
@@ -237,6 +240,14 @@
 				D318A0E422DDB738004C2FE0 /* RealmChapterTool.swift */,
 			);
 			path = Database;
+			sourceTree = "<group>";
+		};
+		D36AEF4D22DEBD0B009AE08A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D36AEF4E22DEBD16009AE08A /* ReadView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,6 +383,7 @@
 				D30E4D5A22DD65EC00B5D4DA /* ViewController.swift in Sources */,
 				D30E4D6D22DD674400B5D4DA /* UIView_MST.swift in Sources */,
 				D30E4D4022DD5C3B00B5D4DA /* BookCatalogueVC.swift in Sources */,
+				D36AEF4F22DEBD16009AE08A /* ReadView.swift in Sources */,
 				D30E4D6B22DD674400B5D4DA /* String_MST.swift in Sources */,
 				D30E4D6622DD674400B5D4DA /* MSTTools.swift in Sources */,
 				D30E4D3F22DD5C3B00B5D4DA /* ChapterReadVC.swift in Sources */,

@@ -26,6 +26,15 @@ class RealmChapterTool: NSObject {
 }
 
 extension RealmChapterTool {
+    // MARK: - Update
+    class func updatePageCount(_ pageCount: String, bookID: Int, idx: Int) {
+        try! _db.write {
+            let list = _db.objects(ChapterModel.self).filter("bookID = \(bookID) AND idx = \(idx)")
+        }
+    }
+}
+
+extension RealmChapterTool {
     // MARK: - Query
     class func query(byBookID id: String) -> Results<ChapterModel> {
         let list = _db.objects(ChapterModel.self).filter("bookID = '\(id)'")

@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class ChapterModel: Object {
+class ChapterModel: Object, NSCopying {
 
     // MARK: - Properties
     /// 所属书目ID
@@ -22,17 +22,55 @@ class ChapterModel: Object {
     @objc dynamic var title: String = ""
     
     /// 内容
-    @objc dynamic var content: String = ""
+    @objc dynamic var content: String = "" {
+        didSet {
+            if pageArrayString.mst_charLength == 0 {
+                p_paginate(ReadUtilities.displayRect())
+            }
+        }
+    }
+    
+    /// 分页数据
+    @objc dynamic var pageArrayString: String = ""
+    
+    /// 缓存地址
+    @objc dynamic var cachePath: String = ""
     
     /// 章节页数
     @objc dynamic var pageCount: Int = 0
 
-    private let _pageArray = List<Int>()
+    private var _pageArray: Array<Int> = []
+
+    override static func ignoredProperties() -> [String] {
+        return ["content"]
+    }
+}
+
+extension ChapterModel {
+    // MARK: - Initial Methods
+    func copy(with zone: NSZone? = nil) -> Any {
+        let obj = type(of: self).init()
+        obj.bookID = bookID
+        obj.idx = idx
+        obj.title = title
+        obj.content = content
+        obj.pageCount = pageCount
+        obj._pageArray = _pageArray
+        
+        return obj
+    }
 }
 
 extension ChapterModel {
     // MARK: - Instance Methods
     func string(ofPage page: Int) -> String {
+        if pageArrayString.mst_charLength != 0 && _pageArray.count == 0 {
+            let tArr = p_stringToArray(pageArrayString)
+            _pageArray = tArr
+        }
+        
+        guard _pageArray.count > page else { return "" }
+        
         let local = _pageArray[page]
         var length = 0
         if page < pageCount-1 {
@@ -106,5 +144,18 @@ extension ChapterModel {
         }
         
         pageCount = _pageArray.count
+        
+        pageArrayString = p_arrayToString(_pageArray)
+    }
+    
+    func p_arrayToString(_ array: Array<Int>) -> String {
+        return array.map(String.init).joined(separator: ",")
+    }
+    
+    func p_stringToArray(_ string: String) -> [Int] {
+        let array = string.components(separatedBy: ",")
+
+        let tArr = array.map(Int.init)
+        return tArr as! Array<Int>
     }
 }

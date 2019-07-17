@@ -10,10 +10,22 @@
 import UIKit
 
 class ChapterReadVC: BaseViewController {
+    // MARK: - Properties
+    var readView: ReadView!
+    
     // MARK: - Instance Methods
     override func initView() {
         super.initView()
+        readView = ReadView(frame: self.view.frame)
         
-        self.navigationController?.setNavigationBarHidden(true, animated: true);
+        view.addSubview(readView)
+    
+        let url = Bundle.main.url(forResource: "mdjyml", withExtension: "txt")!
+        
+        ReadUtilities.localBookModel(byURL: url) { (book) in
+            if let chapter = book.chapters.first {
+                self.readView.frameRef = ReadParser.parseContent(content: chapter.string(ofPage: 0), bounds: ReadUtilities.displayRect())
+            }
+        }
     }
 }
