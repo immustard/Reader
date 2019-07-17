@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		12322A737C19DEC25EBF7072 /* Pods_Reader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C67E356899C9BB06B530F2F2 /* Pods_Reader.framework */; };
+		D30E4D1022DD5B9F00B5D4DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D0F22DD5B9F00B5D4DA /* AppDelegate.swift */; };
+		D30E4D1522DD5B9F00B5D4DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D30E4D1322DD5B9F00B5D4DA /* Main.storyboard */; };
+		D30E4D1722DD5BA000B5D4DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D30E4D1622DD5BA000B5D4DA /* Assets.xcassets */; };
+		D30E4D1A22DD5BA000B5D4DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D30E4D1822DD5BA000B5D4DA /* LaunchScreen.storyboard */; };
+		D30E4D3722DD5C1A00B5D4DA /* mdjyml.txt in Resources */ = {isa = PBXBuildFile; fileRef = D30E4D3622DD5C1A00B5D4DA /* mdjyml.txt */; };
+		D30E4D3E22DD5C3B00B5D4DA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D3A22DD5C3B00B5D4DA /* BaseViewController.swift */; };
+		D30E4D3F22DD5C3B00B5D4DA /* ChapterReadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D3B22DD5C3B00B5D4DA /* ChapterReadVC.swift */; };
+		D30E4D4022DD5C3B00B5D4DA /* BookCatalogueVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D3C22DD5C3B00B5D4DA /* BookCatalogueVC.swift */; };
+		D30E4D4322DD5CEC00B5D4DA /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D4222DD5CEC00B5D4DA /* Const.swift */; };
+		D30E4D4522DD5CF400B5D4DA /* ReadConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D4422DD5CF400B5D4DA /* ReadConfig.swift */; };
+		D30E4D4722DD5D3100B5D4DA /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D4622DD5D3100B5D4DA /* Macro.swift */; };
+		D30E4D4A22DD5D9D00B5D4DA /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D4922DD5D9D00B5D4DA /* BookModel.swift */; };
+		D30E4D4D22DD5DAE00B5D4DA /* ChapterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D4C22DD5DAE00B5D4DA /* ChapterModel.swift */; };
+		D30E4D5122DD609600B5D4DA /* ReadParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D4F22DD609600B5D4DA /* ReadParser.swift */; };
+		D30E4D5222DD609600B5D4DA /* ReadUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D5022DD609600B5D4DA /* ReadUtilities.swift */; };
+		D30E4D5522DD658500B5D4DA /* RealmTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D5422DD658500B5D4DA /* RealmTool.swift */; };
+		D30E4D5A22DD65EC00B5D4DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D5922DD65EC00B5D4DA /* ViewController.swift */; };
+		D30E4D6622DD674400B5D4DA /* MSTTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D5D22DD674400B5D4DA /* MSTTools.swift */; };
+		D30E4D6722DD674400B5D4DA /* MSTTools_Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D5E22DD674400B5D4DA /* MSTTools_Log.swift */; };
+		D30E4D6822DD674400B5D4DA /* MSTTools_File.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D5F22DD674400B5D4DA /* MSTTools_File.swift */; };
+		D30E4D6922DD674400B5D4DA /* MSTTools_Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D6022DD674400B5D4DA /* MSTTools_Date.swift */; };
+		D30E4D6B22DD674400B5D4DA /* String_MST.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D6322DD674400B5D4DA /* String_MST.swift */; };
+		D30E4D6C22DD674400B5D4DA /* UIColor_MST.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D6422DD674400B5D4DA /* UIColor_MST.swift */; };
+		D30E4D6D22DD674400B5D4DA /* UIView_MST.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D6522DD674400B5D4DA /* UIView_MST.swift */; };
+		D30E4D7222DD68CB00B5D4DA /* RealmBookTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D7122DD68CB00B5D4DA /* RealmBookTool.swift */; };
+		D318A0E522DDB738004C2FE0 /* RealmChapterTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D318A0E422DDB738004C2FE0 /* RealmChapterTool.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		02575E227FEB57F9672BEEDD /* Pods-Reader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reader.debug.xcconfig"; path = "Target Support Files/Pods-Reader/Pods-Reader.debug.xcconfig"; sourceTree = "<group>"; };
+		30016E740C645ECB0C652AB4 /* Pods-Reader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reader.release.xcconfig"; path = "Target Support Files/Pods-Reader/Pods-Reader.release.xcconfig"; sourceTree = "<group>"; };
+		C67E356899C9BB06B530F2F2 /* Pods_Reader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D30E4D0C22DD5B9F00B5D4DA /* Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D30E4D0F22DD5B9F00B5D4DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D30E4D1422DD5B9F00B5D4DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D30E4D1622DD5BA000B5D4DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D30E4D1922DD5BA000B5D4DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D30E4D1B22DD5BA000B5D4DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D30E4D3622DD5C1A00B5D4DA /* mdjyml.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mdjyml.txt; sourceTree = "<group>"; };
+		D30E4D3A22DD5C3B00B5D4DA /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		D30E4D3B22DD5C3B00B5D4DA /* ChapterReadVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChapterReadVC.swift; sourceTree = "<group>"; };
+		D30E4D3C22DD5C3B00B5D4DA /* BookCatalogueVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCatalogueVC.swift; sourceTree = "<group>"; };
+		D30E4D4222DD5CEC00B5D4DA /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		D30E4D4422DD5CF400B5D4DA /* ReadConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadConfig.swift; sourceTree = "<group>"; };
+		D30E4D4622DD5D3100B5D4DA /* Macro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
+		D30E4D4922DD5D9D00B5D4DA /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
+		D30E4D4C22DD5DAE00B5D4DA /* ChapterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterModel.swift; sourceTree = "<group>"; };
+		D30E4D4F22DD609600B5D4DA /* ReadParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadParser.swift; sourceTree = "<group>"; };
+		D30E4D5022DD609600B5D4DA /* ReadUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadUtilities.swift; sourceTree = "<group>"; };
+		D30E4D5422DD658500B5D4DA /* RealmTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTool.swift; sourceTree = "<group>"; };
+		D30E4D5922DD65EC00B5D4DA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D30E4D5D22DD674400B5D4DA /* MSTTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSTTools.swift; sourceTree = "<group>"; };
+		D30E4D5E22DD674400B5D4DA /* MSTTools_Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSTTools_Log.swift; sourceTree = "<group>"; };
+		D30E4D5F22DD674400B5D4DA /* MSTTools_File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSTTools_File.swift; sourceTree = "<group>"; };
+		D30E4D6022DD674400B5D4DA /* MSTTools_Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSTTools_Date.swift; sourceTree = "<group>"; };
+		D30E4D6322DD674400B5D4DA /* String_MST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String_MST.swift; sourceTree = "<group>"; };
+		D30E4D6422DD674400B5D4DA /* UIColor_MST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor_MST.swift; sourceTree = "<group>"; };
+		D30E4D6522DD674400B5D4DA /* UIView_MST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView_MST.swift; sourceTree = "<group>"; };
+		D30E4D7122DD68CB00B5D4DA /* RealmBookTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBookTool.swift; sourceTree = "<group>"; };
+		D318A0E422DDB738004C2FE0 /* RealmChapterTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmChapterTool.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D30E4D0922DD5B9F00B5D4DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12322A737C19DEC25EBF7072 /* Pods_Reader.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		55B54AC30B74F044E328DEA4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				02575E227FEB57F9672BEEDD /* Pods-Reader.debug.xcconfig */,
+				30016E740C645ECB0C652AB4 /* Pods-Reader.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AABDD612F00EFDD1805FC7D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C67E356899C9BB06B530F2F2 /* Pods_Reader.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D30E4D0322DD5B9F00B5D4DA = {
+			isa = PBXGroup;
+			children = (
+				D30E4D0E22DD5B9F00B5D4DA /* Reader */,
+				D30E4D0D22DD5B9F00B5D4DA /* Products */,
+				55B54AC30B74F044E328DEA4 /* Pods */,
+				AABDD612F00EFDD1805FC7D8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D30E4D0D22DD5B9F00B5D4DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D30E4D0C22DD5B9F00B5D4DA /* Reader.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D30E4D0E22DD5B9F00B5D4DA /* Reader */ = {
+			isa = PBXGroup;
+			children = (
+				D30E4D0F22DD5B9F00B5D4DA /* AppDelegate.swift */,
+				D30E4D6E22DD683300B5D4DA /* Database */,
+				D30E4D2222DD5BD500B5D4DA /* UI */,
+				D30E4D2322DD5BDE00B5D4DA /* Utils */,
+				D30E4D4122DD5CE400B5D4DA /* Config */,
+				D30E4D3522DD5C0200B5D4DA /* Resources */,
+			);
+			path = Reader;
+			sourceTree = "<group>";
+		};
+		D30E4D2222DD5BD500B5D4DA /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D30E4D4822DD5D8C00B5D4DA /* Model */,
+				D30E4D3822DD5C3B00B5D4DA /* Controller */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		D30E4D2322DD5BDE00B5D4DA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D30E4D5B22DD674400B5D4DA /* MSTTools_Swift */,
+				D30E4D4E22DD608C00B5D4DA /* Read */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		D30E4D3522DD5C0200B5D4DA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D30E4D3622DD5C1A00B5D4DA /* mdjyml.txt */,
+				D30E4D1322DD5B9F00B5D4DA /* Main.storyboard */,
+				D30E4D1622DD5BA000B5D4DA /* Assets.xcassets */,
+				D30E4D1822DD5BA000B5D4DA /* LaunchScreen.storyboard */,
+				D30E4D1B22DD5BA000B5D4DA /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D30E4D3822DD5C3B00B5D4DA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D30E4D5922DD65EC00B5D4DA /* ViewController.swift */,
+				D30E4D3A22DD5C3B00B5D4DA /* BaseViewController.swift */,
+				D30E4D3B22DD5C3B00B5D4DA /* ChapterReadVC.swift */,
+				D30E4D3C22DD5C3B00B5D4DA /* BookCatalogueVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D30E4D4122DD5CE400B5D4DA /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				D30E4D4222DD5CEC00B5D4DA /* Const.swift */,
+				D30E4D4622DD5D3100B5D4DA /* Macro.swift */,
+				D30E4D4422DD5CF400B5D4DA /* ReadConfig.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		D30E4D4822DD5D8C00B5D4DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D30E4D4922DD5D9D00B5D4DA /* BookModel.swift */,
+				D30E4D4C22DD5DAE00B5D4DA /* ChapterModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D30E4D4E22DD608C00B5D4DA /* Read */ = {
+			isa = PBXGroup;
+			children = (
+				D30E4D5022DD609600B5D4DA /* ReadUtilities.swift */,
+				D30E4D4F22DD609600B5D4DA /* ReadParser.swift */,
+			);
+			path = Read;
+			sourceTree = "<group>";
+		};
+		D30E4D5B22DD674400B5D4DA /* MSTTools_Swift */ = {
+			isa = PBXGroup;
+			children = (
+				D30E4D5C22DD674400B5D4DA /* Tools */,
+				D30E4D6122DD674400B5D4DA /* Extension */,
+			);
+			path = MSTTools_Swift;
+			sourceTree = "<group>";
+		};
+		D30E4D5C22DD674400B5D4DA /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				D30E4D5D22DD674400B5D4DA /* MSTTools.swift */,
+				D30E4D5E22DD674400B5D4DA /* MSTTools_Log.swift */,
+				D30E4D5F22DD674400B5D4DA /* MSTTools_File.swift */,
+				D30E4D6022DD674400B5D4DA /* MSTTools_Date.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		D30E4D6122DD674400B5D4DA /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D30E4D6322DD674400B5D4DA /* String_MST.swift */,
+				D30E4D6422DD674400B5D4DA /* UIColor_MST.swift */,
+				D30E4D6522DD674400B5D4DA /* UIView_MST.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		D30E4D6E22DD683300B5D4DA /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				D30E4D5422DD658500B5D4DA /* RealmTool.swift */,
+				D30E4D7122DD68CB00B5D4DA /* RealmBookTool.swift */,
+				D318A0E422DDB738004C2FE0 /* RealmChapterTool.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D30E4D0B22DD5B9F00B5D4DA /* Reader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D30E4D1E22DD5BA000B5D4DA /* Build configuration list for PBXNativeTarget "Reader" */;
+			buildPhases = (
+				312EF92728C755C4A84479FF /* [CP] Check Pods Manifest.lock */,
+				D30E4D0822DD5B9F00B5D4DA /* Sources */,
+				D30E4D0922DD5B9F00B5D4DA /* Frameworks */,
+				D30E4D0A22DD5B9F00B5D4DA /* Resources */,
+				9992B975EAF14C96A439D087 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Reader;
+			productName = Reader;
+			productReference = D30E4D0C22DD5B9F00B5D4DA /* Reader.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D30E4D0422DD5B9F00B5D4DA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = Mustard;
+				TargetAttributes = {
+					D30E4D0B22DD5B9F00B5D4DA = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = D30E4D0722DD5B9F00B5D4DA /* Build configuration list for PBXProject "Reader" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D30E4D0322DD5B9F00B5D4DA;
+			productRefGroup = D30E4D0D22DD5B9F00B5D4DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D30E4D0B22DD5B9F00B5D4DA /* Reader */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D30E4D0A22DD5B9F00B5D4DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D30E4D1A22DD5BA000B5D4DA /* LaunchScreen.storyboard in Resources */,
+				D30E4D3722DD5C1A00B5D4DA /* mdjyml.txt in Resources */,
+				D30E4D1722DD5BA000B5D4DA /* Assets.xcassets in Resources */,
+				D30E4D1522DD5B9F00B5D4DA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		312EF92728C755C4A84479FF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Reader-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9992B975EAF14C96A439D087 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Reader/Pods-Reader-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Reader/Pods-Reader-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Reader/Pods-Reader-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D30E4D0822DD5B9F00B5D4DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D30E4D5122DD609600B5D4DA /* ReadParser.swift in Sources */,
+				D30E4D4D22DD5DAE00B5D4DA /* ChapterModel.swift in Sources */,
+				D30E4D6822DD674400B5D4DA /* MSTTools_File.swift in Sources */,
+				D30E4D3E22DD5C3B00B5D4DA /* BaseViewController.swift in Sources */,
+				D30E4D6C22DD674400B5D4DA /* UIColor_MST.swift in Sources */,
+				D318A0E522DDB738004C2FE0 /* RealmChapterTool.swift in Sources */,
+				D30E4D1022DD5B9F00B5D4DA /* AppDelegate.swift in Sources */,
+				D30E4D5222DD609600B5D4DA /* ReadUtilities.swift in Sources */,
+				D30E4D4522DD5CF400B5D4DA /* ReadConfig.swift in Sources */,
+				D30E4D4722DD5D3100B5D4DA /* Macro.swift in Sources */,
+				D30E4D7222DD68CB00B5D4DA /* RealmBookTool.swift in Sources */,
+				D30E4D6922DD674400B5D4DA /* MSTTools_Date.swift in Sources */,
+				D30E4D4A22DD5D9D00B5D4DA /* BookModel.swift in Sources */,
+				D30E4D6722DD674400B5D4DA /* MSTTools_Log.swift in Sources */,
+				D30E4D5A22DD65EC00B5D4DA /* ViewController.swift in Sources */,
+				D30E4D6D22DD674400B5D4DA /* UIView_MST.swift in Sources */,
+				D30E4D4022DD5C3B00B5D4DA /* BookCatalogueVC.swift in Sources */,
+				D30E4D6B22DD674400B5D4DA /* String_MST.swift in Sources */,
+				D30E4D6622DD674400B5D4DA /* MSTTools.swift in Sources */,
+				D30E4D3F22DD5C3B00B5D4DA /* ChapterReadVC.swift in Sources */,
+				D30E4D5522DD658500B5D4DA /* RealmTool.swift in Sources */,
+				D30E4D4322DD5CEC00B5D4DA /* Const.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D30E4D1322DD5B9F00B5D4DA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D30E4D1422DD5B9F00B5D4DA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D30E4D1822DD5BA000B5D4DA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D30E4D1922DD5BA000B5D4DA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D30E4D1C22DD5BA000B5D4DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D30E4D1D22DD5BA000B5D4DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D30E4D1F22DD5BA000B5D4DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02575E227FEB57F9672BEEDD /* Pods-Reader.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B2M4QJR2FL;
+				INFOPLIST_FILE = "$(SRCROOT)/Reader/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mustard.Reader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		D30E4D2022DD5BA000B5D4DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30016E740C645ECB0C652AB4 /* Pods-Reader.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B2M4QJR2FL;
+				INFOPLIST_FILE = "$(SRCROOT)/Reader/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mustard.Reader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D30E4D0722DD5B9F00B5D4DA /* Build configuration list for PBXProject "Reader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D30E4D1C22DD5BA000B5D4DA /* Debug */,
+				D30E4D1D22DD5BA000B5D4DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D30E4D1E22DD5BA000B5D4DA /* Build configuration list for PBXNativeTarget "Reader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D30E4D1F22DD5BA000B5D4DA /* Debug */,
+				D30E4D2022DD5BA000B5D4DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D30E4D0422DD5B9F00B5D4DA /* Project object */;
+}
