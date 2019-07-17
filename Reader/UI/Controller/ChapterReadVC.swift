@@ -23,7 +23,7 @@ class ChapterReadVC: BaseViewController {
         let url = Bundle.main.url(forResource: "mdjyml", withExtension: "txt")!
         
         ReadUtilities.localBookModel(byURL: url) { (book) in
-            if let chapter = book.chapters.first {
+            if let chapter = book.chapterArray.first {
                 self.readView.frameRef = ReadParser.parseContent(content: chapter.string(ofPage: 0), bounds: ReadUtilities.displayRect())
             }
         }

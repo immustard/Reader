@@ -35,10 +35,12 @@ extension RealmBookTool {
     }
     
     class func query(byResource resource: String) -> BookModel? {
-        let list = _db.objects(BookModel.self).filter("resource = '\(resource)'")
+        let list = _db.objects(BookModel.self)
+//            .filter("resource = '\(resource)'")
 
         if let model = list.first {
-            model.content = MSTTools.loadContentFromFile(filePath: MSTTools.homePath() + model.cachePath)
+            let filePath = MSTTools.homePath() + model.cachePath
+            model.content = MSTTools.loadContentFromFile(filePath: filePath)
             
             return p_loadChapters(model)
         } else {
@@ -57,13 +59,13 @@ extension RealmBookTool {
         let tBook = book.copy() as! BookModel
 
         var arr: Array<ChapterModel> = []
-        for chapter in tBook.chapters {
+        for chapter in tBook.chapterArray {
             chapter.realm?.beginWrite()
             chapter.content = MSTTools.loadContentFromFile(filePath: MSTTools.homePath() + chapter.cachePath)
             try! chapter.realm?.commitWrite()
             arr.append(chapter)
         }
-        tBook.chapters.append(objectsIn: arr)
+        tBook.chapterArray = arr
         
         return tBook
     }

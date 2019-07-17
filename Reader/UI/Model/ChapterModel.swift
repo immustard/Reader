@@ -31,7 +31,7 @@ class ChapterModel: Object, NSCopying {
     }
     
     /// 分页数据
-    @objc dynamic var pageArrayString: String = ""
+    @objc dynamic private var pageArrayString: String = ""
     
     /// 缓存地址
     @objc dynamic var cachePath: String = ""
@@ -39,7 +39,18 @@ class ChapterModel: Object, NSCopying {
     /// 章节页数
     @objc dynamic var pageCount: Int = 0
 
-    private var _pageArray: Array<Int> = []
+    private var _pageArray: Array<Int> {
+        get {
+            return p_stringToArray(pageArrayString)
+        }
+        set {
+            pageArrayString = p_arrayToString(newValue)
+        }
+    }
+    
+    override var description: String {
+        return "chapter idx: \(idx)" + ", bookID: \(bookID)" + ", contentLength: \(content.mst_charLength)" + ", pageArrayCount: \(_pageArray.count)" + ", pageCount: \(pageCount)"
+    }
 
     override static func ignoredProperties() -> [String] {
         return ["content"]

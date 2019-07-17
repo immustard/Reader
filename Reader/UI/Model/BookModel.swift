@@ -25,7 +25,17 @@ class BookModel: Object, NSCopying {
     
     @objc dynamic var readType: Int = ReadTypeUnkown
 
-    let chapters = List<ChapterModel>()
+    private let chapters = List<ChapterModel>()
+    
+    var chapterArray: Array<ChapterModel> {
+        get {
+            return Array(chapters)
+        }
+        set {
+            chapters.removeAll()
+            chapters.append(objectsIn: newValue)
+        }
+    }
     
     override var description: String {
         return "book id: \(id)" + ", title: \(title)" + ", contentLength: \(content.mst_charLength)" + ", chapterCount: \(chapters.count)" + ", type: \(readType)"
@@ -68,10 +78,11 @@ extension BookModel {
     
     func copy(with zone: NSZone? = nil) -> Any {
         let obj = type(of: self).init()
+        obj.content = content
         obj.id = id
         obj.resource = resource
         obj.title = title
-        obj.chapters.append(objectsIn: chapters)
+        obj.chapterArray = chapterArray
         obj.readType = readType
         
         return obj

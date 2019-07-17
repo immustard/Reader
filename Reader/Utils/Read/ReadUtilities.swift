@@ -29,14 +29,14 @@ class ReadUtilities: NSObject {
                 book.id = bookID
                 book.title = "mdjyml"
                 book.resource = url.path
-                book.chapters.append(objectsIn: array)
+                book.chapterArray = array
                 book.content = content
                 book.cachePath = path
                 
                 /// 保存书目
                 RealmBookTool.insert(book)
 
-                completion(book.copy() as! BookModel)
+                completion(book)
             }
 
         }
