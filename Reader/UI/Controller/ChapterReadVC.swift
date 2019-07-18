@@ -15,6 +15,8 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate {
     
     private var _topBar: ReadTopBar!
     
+    private var _catalogueView: CatalogueView!
+    
     var model: BookModel!
 
     // MARK: - Instance Methods
@@ -29,13 +31,9 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate {
         _topBar = ReadTopBar(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: kNavHeight))
         _topBar.delegate = self
         view.addSubview(_topBar)
-    }
-}
-
-// MARK: - Actions
-extension ChapterReadVC {
-    @objc private func p_backAction() {
         
+        _catalogueView = CatalogueView(model: self.model)
+        view.addSubview(_catalogueView)
     }
 }
 
@@ -44,4 +42,9 @@ extension ChapterReadVC {
     func topBackAction() {
         navigationController?.popViewController(animated: true)
     }
+
+    func topMenuAction() {
+        _catalogueView.showAnimation()
+    }
 }
+

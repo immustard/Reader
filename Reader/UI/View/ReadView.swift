@@ -27,7 +27,7 @@ class ReadView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = kColorCCC
+        backgroundColor = .white
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -14,7 +14,6 @@
 		D30E4D3722DD5C1A00B5D4DA /* mdjyml.txt in Resources */ = {isa = PBXBuildFile; fileRef = D30E4D3622DD5C1A00B5D4DA /* mdjyml.txt */; };
 		D30E4D3E22DD5C3B00B5D4DA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D3A22DD5C3B00B5D4DA /* BaseViewController.swift */; };
 		D30E4D3F22DD5C3B00B5D4DA /* ChapterReadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D3B22DD5C3B00B5D4DA /* ChapterReadVC.swift */; };
-		D30E4D4022DD5C3B00B5D4DA /* BookCatalogueVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D3C22DD5C3B00B5D4DA /* BookCatalogueVC.swift */; };
 		D30E4D4322DD5CEC00B5D4DA /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D4222DD5CEC00B5D4DA /* Const.swift */; };
 		D30E4D4522DD5CF400B5D4DA /* ReadConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D4422DD5CF400B5D4DA /* ReadConfig.swift */; };
 		D30E4D4722DD5D3100B5D4DA /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D4622DD5D3100B5D4DA /* Macro.swift */; };
@@ -35,6 +34,7 @@
 		D318A0E522DDB738004C2FE0 /* RealmChapterTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D318A0E422DDB738004C2FE0 /* RealmChapterTool.swift */; };
 		D35599E122DFFDD90042C133 /* BookListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35599E022DFFDD90042C133 /* BookListVC.swift */; };
 		D35599E322E008F30042C133 /* ReadTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35599E222E008F30042C133 /* ReadTopBar.swift */; };
+		D35599E922E014B00042C133 /* CatalogueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35599E822E014B00042C133 /* CatalogueView.swift */; };
 		D36AEF4F22DEBD16009AE08A /* ReadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36AEF4E22DEBD16009AE08A /* ReadView.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +50,6 @@
 		D30E4D3622DD5C1A00B5D4DA /* mdjyml.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mdjyml.txt; sourceTree = "<group>"; };
 		D30E4D3A22DD5C3B00B5D4DA /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		D30E4D3B22DD5C3B00B5D4DA /* ChapterReadVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChapterReadVC.swift; sourceTree = "<group>"; };
-		D30E4D3C22DD5C3B00B5D4DA /* BookCatalogueVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCatalogueVC.swift; sourceTree = "<group>"; };
 		D30E4D4222DD5CEC00B5D4DA /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		D30E4D4422DD5CF400B5D4DA /* ReadConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadConfig.swift; sourceTree = "<group>"; };
 		D30E4D4622DD5D3100B5D4DA /* Macro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
@@ -72,6 +71,7 @@
 		D35599E022DFFDD90042C133 /* BookListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListVC.swift; sourceTree = "<group>"; };
 		D35599E222E008F30042C133 /* ReadTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadTopBar.swift; sourceTree = "<group>"; };
 		D35599E422E012BD0042C133 /* Reader-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Reader-Bridging-Header.h"; sourceTree = "<group>"; };
+		D35599E822E014B00042C133 /* CatalogueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueView.swift; sourceTree = "<group>"; };
 		D36AEF4E22DEBD16009AE08A /* ReadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -171,7 +171,6 @@
 				D30E4D5922DD65EC00B5D4DA /* ViewController.swift */,
 				D30E4D3A22DD5C3B00B5D4DA /* BaseViewController.swift */,
 				D30E4D3B22DD5C3B00B5D4DA /* ChapterReadVC.swift */,
-				D30E4D3C22DD5C3B00B5D4DA /* BookCatalogueVC.swift */,
 				D35599E022DFFDD90042C133 /* BookListVC.swift */,
 			);
 			path = Controller;
@@ -251,6 +250,7 @@
 			children = (
 				D36AEF4E22DEBD16009AE08A /* ReadView.swift */,
 				D35599E222E008F30042C133 /* ReadTopBar.swift */,
+				D35599E822E014B00042C133 /* CatalogueView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -267,6 +267,7 @@
 				D30E4D0922DD5B9F00B5D4DA /* Frameworks */,
 				D30E4D0A22DD5B9F00B5D4DA /* Resources */,
 				9992B975EAF14C96A439D087 /* [CP] Embed Pods Frameworks */,
+				D35599EB22E024880042C133 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -364,6 +365,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Reader/Pods-Reader-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D35599EB22E024880042C133 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nKEYWORDS=\"TODO:|FIXME:|\\?\\?\\?:|\\!\\!\\!:\"\nfind \"${SRCROOT}/Reader\" \\(-name \"*.swift\"\\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | perl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -389,7 +407,7 @@
 				D35599E322E008F30042C133 /* ReadTopBar.swift in Sources */,
 				D30E4D5A22DD65EC00B5D4DA /* ViewController.swift in Sources */,
 				D30E4D6D22DD674400B5D4DA /* UIView_MST.swift in Sources */,
-				D30E4D4022DD5C3B00B5D4DA /* BookCatalogueVC.swift in Sources */,
+				D35599E922E014B00042C133 /* CatalogueView.swift in Sources */,
 				D36AEF4F22DEBD16009AE08A /* ReadView.swift in Sources */,
 				D30E4D6B22DD674400B5D4DA /* String_MST.swift in Sources */,
 				D30E4D6622DD674400B5D4DA /* MSTTools.swift in Sources */,

@@ -17,7 +17,7 @@ class RealmChapterTool: NSObject {
             _db.add(chapter)
         }
     }
-    
+
     class func insert(_ chapters: Array<ChapterModel>) {
         try! _db.write {
             _db.add(chapters)
@@ -30,6 +30,7 @@ extension RealmChapterTool {
     class func updatePageCount(_ pageCount: String, bookID: Int, idx: Int) {
         try! _db.write {
             let list = _db.objects(ChapterModel.self).filter("bookID = \(bookID) AND idx = \(idx)")
+            // TODO: 更新页数
         }
     }
 }
