@@ -25,7 +25,7 @@ class ChapterModel: Object, NSCopying {
     @objc dynamic var content: String = "" {
         didSet {
             if pageArrayString.mst_charLength == 0 {
-                p_paginate(ReadUtilities.displayRect())
+                p_paginate(ReadConfig.default.displayRect)
             }
         }
     }
@@ -94,7 +94,7 @@ extension ChapterModel {
     }
 
     func updateFont() {
-        p_paginate(ReadUtilities.displayRect())
+        p_paginate(ReadConfig.default.displayRect)
     }
 }
 

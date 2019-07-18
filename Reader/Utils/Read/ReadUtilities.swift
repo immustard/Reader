@@ -140,16 +140,6 @@ class ReadUtilities: NSObject {
             }
         }
     }
-    
-    /// 获取展示区域
-    static func displayRect() -> CGRect {
-        let left = ReadConfig.default.leftSpacing
-        let top = ReadConfig.default.topSpacing
-        let width = kScreenWidth-ReadConfig.default.leftSpacing-ReadConfig.default.rightSpacing
-        let height = kScreenHeight-ReadConfig.default.topSpacing-ReadConfig.default.bottomSpacing
-        
-        return CGRect(x: left, y: top, width: width, height: height)
-    }
 }
 
 extension ReadUtilities {

@@ -22,14 +22,14 @@ class RealmBookTool: NSObject {
 extension RealmBookTool {
     // MARK: - Query
     class func queryAll() -> Array<BookModel> {
-        let list = _db.objects(BookModel.self)
+        let list = _db.objects(BookModel.self).sorted(byKeyPath: "lastOpenTime", ascending: false)
         
         var books: Array<BookModel> = []
 
         for book in list {
             book.content = MSTTools.loadContentFromFile(filePath: MSTTools.homePath() + book.cachePath)
 
-            books.append(book)
+            books.append(p_loadChapters(book))
         }
         return books
     }

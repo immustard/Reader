@@ -34,6 +34,8 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate {
         
         _catalogueView = CatalogueView(model: self.model)
         view.addSubview(_catalogueView)
+        
+        _readView.frameRef = ReadParser.parseContent(content: model.chapterArray.first?.string(ofPage: 0) ?? "", bounds: ReadConfig.default.displayRect)
     }
 }
 
