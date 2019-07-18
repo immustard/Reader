@@ -21,7 +21,7 @@ class BaseViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     // MARK: - Instance Methods
     func initData() {
-
+        
     }
 
     func initView() {
@@ -34,7 +34,7 @@ class BaseViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     // MARK: - UITableViewDataSource & Delegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSourceArray.count
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,14 +45,12 @@ class BaseViewController: UIViewController, UITableViewDataSource, UITableViewDe
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: view.bounds, style: .plain)
         tableView.backgroundColor = kBgColor
+        tableView.tableFooterView = UIView()
+
         tableView.dataSource = self
         tableView.delegate = self
         
         return tableView
-    }()
-    
-    lazy var dataSourceArray: Array<Any> = {
-        return []
     }()
     
 }

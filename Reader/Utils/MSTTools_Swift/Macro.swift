@@ -5,6 +5,13 @@
 
 import UIKit
 
+// MARK: - device
+var kIsPhoneX: Bool {
+    return UIApplication.shared.windows.first?.safeAreaInsets != UIEdgeInsets.zero
+}
+
+
+// MARK: - screen
 var kScreenWidth: CGFloat {
     return UIScreen.main.bounds.width
 }
@@ -13,6 +20,20 @@ var kScreenHeight: CGFloat {
     return UIScreen.main.bounds.height
 }
 
+var kNavHeight: CGFloat {
+    return kIsPhoneX ? 88 : 64
+}
+
+var kTabHeight: CGFloat {
+    return kIsPhoneX ? 83 : 49
+}
+
+var kStatusHeight: CGFloat {
+    return kIsPhoneX ? 44 : 20
+}
+
+
+// MARK: - color
 var kBgColor: UIColor {
     return UIColor.mst_colorWithHexString("F3F4F5")
 }
@@ -36,4 +57,3 @@ var kColor999: UIColor {
 var kColorCCC: UIColor {
     return UIColor.mst_colorWithHexString("cccccc")
 }
-

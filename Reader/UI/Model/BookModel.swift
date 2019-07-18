@@ -12,21 +12,22 @@ import RealmSwift
 class BookModel: Object, NSCopying {
 
     // MARK: - Properties
-
+    /// 书目id
     @objc dynamic var id = 0
-    
+
+    /// 资源地址
     @objc dynamic var resource: String = ""
-    
+    /// 书名
     @objc dynamic var title: String = ""
-
+    /// 文字内容
     @objc dynamic var content: String = ""
-    
+    /// 缓存地址
     @objc dynamic var cachePath: String = ""
-    
+    /// 类型
     @objc dynamic var readType: Int = ReadTypeUnkown
-
+    /// 章节(realm)
     private let chapters = List<ChapterModel>()
-    
+    /// 章节
     var chapterArray: Array<ChapterModel> {
         get {
             return Array(chapters)
@@ -36,6 +37,9 @@ class BookModel: Object, NSCopying {
             chapters.append(objectsIn: newValue)
         }
     }
+    
+    /// 最后一次打开时间
+    @objc dynamic var lastOpenTime: String = "0"
     
     override var description: String {
         return "book id: \(id)" + ", title: \(title)" + ", contentLength: \(content.mst_charLength)" + ", chapterCount: \(chapters.count)" + ", type: \(readType)"

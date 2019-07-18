@@ -34,6 +34,8 @@
 		D30E4D6D22DD674400B5D4DA /* UIView_MST.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D6522DD674400B5D4DA /* UIView_MST.swift */; };
 		D30E4D7222DD68CB00B5D4DA /* RealmBookTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D7122DD68CB00B5D4DA /* RealmBookTool.swift */; };
 		D318A0E522DDB738004C2FE0 /* RealmChapterTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D318A0E422DDB738004C2FE0 /* RealmChapterTool.swift */; };
+		D35599E122DFFDD90042C133 /* BookListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35599E022DFFDD90042C133 /* BookListVC.swift */; };
+		D35599E322E008F30042C133 /* ReadTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35599E222E008F30042C133 /* ReadTopBar.swift */; };
 		D36AEF4F22DEBD16009AE08A /* ReadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36AEF4E22DEBD16009AE08A /* ReadView.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,8 @@
 		D30E4D6522DD674400B5D4DA /* UIView_MST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView_MST.swift; sourceTree = "<group>"; };
 		D30E4D7122DD68CB00B5D4DA /* RealmBookTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBookTool.swift; sourceTree = "<group>"; };
 		D318A0E422DDB738004C2FE0 /* RealmChapterTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmChapterTool.swift; sourceTree = "<group>"; };
+		D35599E022DFFDD90042C133 /* BookListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListVC.swift; sourceTree = "<group>"; };
+		D35599E222E008F30042C133 /* ReadTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadTopBar.swift; sourceTree = "<group>"; };
 		D36AEF4E22DEBD16009AE08A /* ReadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,6 +174,7 @@
 				D30E4D3A22DD5C3B00B5D4DA /* BaseViewController.swift */,
 				D30E4D3B22DD5C3B00B5D4DA /* ChapterReadVC.swift */,
 				D30E4D3C22DD5C3B00B5D4DA /* BookCatalogueVC.swift */,
+				D35599E022DFFDD90042C133 /* BookListVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -178,7 +183,6 @@
 			isa = PBXGroup;
 			children = (
 				D30E4D4222DD5CEC00B5D4DA /* Const.swift */,
-				D30E4D4622DD5D3100B5D4DA /* Macro.swift */,
 				D30E4D4422DD5CF400B5D4DA /* ReadConfig.swift */,
 			);
 			path = Config;
@@ -205,6 +209,7 @@
 		D30E4D5B22DD674400B5D4DA /* MSTTools_Swift */ = {
 			isa = PBXGroup;
 			children = (
+				D30E4D4622DD5D3100B5D4DA /* Macro.swift */,
 				D30E4D5C22DD674400B5D4DA /* Tools */,
 				D30E4D6122DD674400B5D4DA /* Extension */,
 			);
@@ -246,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				D36AEF4E22DEBD16009AE08A /* ReadView.swift */,
+				D35599E222E008F30042C133 /* ReadTopBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -369,6 +375,7 @@
 				D30E4D5122DD609600B5D4DA /* ReadParser.swift in Sources */,
 				D30E4D4D22DD5DAE00B5D4DA /* ChapterModel.swift in Sources */,
 				D30E4D6822DD674400B5D4DA /* MSTTools_File.swift in Sources */,
+				D35599E122DFFDD90042C133 /* BookListVC.swift in Sources */,
 				D30E4D3E22DD5C3B00B5D4DA /* BaseViewController.swift in Sources */,
 				D30E4D6C22DD674400B5D4DA /* UIColor_MST.swift in Sources */,
 				D318A0E522DDB738004C2FE0 /* RealmChapterTool.swift in Sources */,
@@ -380,6 +387,7 @@
 				D30E4D6922DD674400B5D4DA /* MSTTools_Date.swift in Sources */,
 				D30E4D4A22DD5D9D00B5D4DA /* BookModel.swift in Sources */,
 				D30E4D6722DD674400B5D4DA /* MSTTools_Log.swift in Sources */,
+				D35599E322E008F30042C133 /* ReadTopBar.swift in Sources */,
 				D30E4D5A22DD65EC00B5D4DA /* ViewController.swift in Sources */,
 				D30E4D6D22DD674400B5D4DA /* UIView_MST.swift in Sources */,
 				D30E4D4022DD5C3B00B5D4DA /* BookCatalogueVC.swift in Sources */,
@@ -538,7 +546,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B2M4QJR2FL;
 				INFOPLIST_FILE = "$(SRCROOT)/Reader/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -558,7 +566,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B2M4QJR2FL;
 				INFOPLIST_FILE = "$(SRCROOT)/Reader/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

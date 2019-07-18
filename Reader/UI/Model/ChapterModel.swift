@@ -51,7 +51,7 @@ class ChapterModel: Object, NSCopying {
     override var description: String {
         return "chapter idx: \(idx)" + ", bookID: \(bookID)" + ", contentLength: \(content.mst_charLength)" + ", pageArrayCount: \(_pageArray.count)" + ", pageCount: \(pageCount)"
     }
-
+    
     override static func ignoredProperties() -> [String] {
         return ["content"]
     }
@@ -160,10 +160,14 @@ extension ChapterModel {
     }
     
     func p_arrayToString(_ array: Array<Int>) -> String {
-        return array.map(String.init).joined(separator: ",")
+        let string = array.map(String.init).joined(separator: ",")
+        return string
     }
     
     func p_stringToArray(_ string: String) -> [Int] {
+        guard string.mst_charLength != 0 else {
+            return []
+        }
         let array = string.components(separatedBy: ",")
 
         let tArr = array.map(Int.init)

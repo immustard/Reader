@@ -8,16 +8,16 @@
 
 import RealmSwift
 
-let kDatabaseVersion: UInt64 = 1
+let kDatabaseVersion: UInt64 = 3
 
 class RealmTool: NSObject {
-    class func initialized() {
+    class func customInitialize() {
         /// 如果要存储的数据模型属性发生变化,需要配置当前版本号比之前大
         let dbVersion : UInt64 = kDatabaseVersion
         let docPath = MSTTools.documentsPath()
         let dbPath = docPath.appending("/ReadDB.realm")
         let config = Realm.Configuration(fileURL: URL.init(string: dbPath), inMemoryIdentifier: nil, syncConfiguration: nil, encryptionKey: nil, readOnly: false, schemaVersion: dbVersion, migrationBlock: { (migration, oldSchemaVersion) in
-            
+
         }, deleteRealmIfMigrationNeeded: false, shouldCompactOnLaunch: nil, objectTypes: nil)
         Realm.Configuration.defaultConfiguration = config
         Realm.asyncOpen { (realm, error) in

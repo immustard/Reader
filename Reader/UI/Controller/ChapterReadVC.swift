@@ -11,21 +11,26 @@ import UIKit
 
 class ChapterReadVC: BaseViewController {
     // MARK: - Properties
-    var readView: ReadView!
+    private var _readView: ReadView!
     
+    private var _topBar: ReadTopBar!
+    
+    var model: BookModel!
+
     // MARK: - Instance Methods
     override func initView() {
         super.initView()
-        readView = ReadView(frame: self.view.frame)
+
+        _readView = ReadView(frame: self.view.frame)
+        view.addSubview(_readView)
         
-        view.addSubview(readView)
-    
-        let url = Bundle.main.url(forResource: "mdjyml", withExtension: "txt")!
+        _topBar = ReadTopBar(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: kNavHeight))
+    }
+}
+
+// MARK: - Actions
+extension ChapterReadVC {
+    @objc private func p_backAction() {
         
-        ReadUtilities.localBookModel(byURL: url) { (book) in
-            if let chapter = book.chapterArray.first {
-                self.readView.frameRef = ReadParser.parseContent(content: chapter.string(ofPage: 0), bounds: ReadUtilities.displayRect())
-            }
-        }
     }
 }

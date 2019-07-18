@@ -25,7 +25,8 @@ class ViewController: UIViewController {
 
     // MARK: - Actions
     @objc func buttonAction() {
-        let vc = ChapterReadVC()
+        let vc = BookListVC()
+//        let vc = ChapterReadVC()
         navigationController?.pushViewController(vc, animated: true)
     }
 }
