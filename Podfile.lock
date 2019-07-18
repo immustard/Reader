@@ -4,19 +4,25 @@ PODS:
   - Realm/Headers (3.17.1)
   - RealmSwift (3.17.1):
     - Realm (= 3.17.1)
+  - RTRootNavigationController (0.7.1):
+    - RTRootNavigationController/Core (= 0.7.1)
+  - RTRootNavigationController/Core (0.7.1)
 
 DEPENDENCIES:
   - RealmSwift
+  - RTRootNavigationController
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Realm
     - RealmSwift
+    - RTRootNavigationController
 
 SPEC CHECKSUMS:
   Realm: c204f1a890f07dea43b14132a6aad118c054b8f2
   RealmSwift: 4d3c9233544b9cd08a8913e0872b9038eb99b054
+  RTRootNavigationController: afa6913402be26f8326f7f37fc1550aa67baddcc
 
-PODFILE CHECKSUM: 52b8f41b075ae140b54b2dbb3861f1ea169ae3ad
+PODFILE CHECKSUM: 14467aa0751f3021b9ffdb2f88b239f903116ae4
 
 COCOAPODS: 1.7.4

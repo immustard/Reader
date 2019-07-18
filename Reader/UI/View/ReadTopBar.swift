@@ -21,9 +21,12 @@ class ReadTopBar: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
+        backgroundColor = .white
+        
         let backBtn = UIButton(type: .custom)
         backBtn.setImage(#imageLiteral(resourceName: "back_dark"), for: .normal)
         backBtn.frame = CGRect(x: 20, y: mst_bottom-8-40, width: 40, height: 40)
+        backBtn.addTarget(self, action: #selector(p_backAction), for: .touchUpInside)
         self.addSubview(backBtn)
     }
     

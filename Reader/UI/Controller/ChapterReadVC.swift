@@ -9,7 +9,7 @@
 
 import UIKit
 
-class ChapterReadVC: BaseViewController {
+class ChapterReadVC: BaseViewController, ReadTopBarDelegate {
     // MARK: - Properties
     private var _readView: ReadView!
     
@@ -20,11 +20,15 @@ class ChapterReadVC: BaseViewController {
     // MARK: - Instance Methods
     override func initView() {
         super.initView()
+        
+        navigationController?.setNavigationBarHidden(true, animated: false)
 
         _readView = ReadView(frame: self.view.frame)
         view.addSubview(_readView)
         
         _topBar = ReadTopBar(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: kNavHeight))
+        _topBar.delegate = self
+        view.addSubview(_topBar)
     }
 }
 
@@ -32,5 +36,12 @@ class ChapterReadVC: BaseViewController {
 extension ChapterReadVC {
     @objc private func p_backAction() {
         
+    }
+}
+
+// MARK: - ReadTopBarDelegate
+extension ChapterReadVC {
+    func topBackAction() {
+        navigationController?.popViewController(animated: true)
     }
 }
