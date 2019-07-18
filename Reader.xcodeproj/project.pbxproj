@@ -36,6 +36,8 @@
 		D35599E322E008F30042C133 /* ReadTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35599E222E008F30042C133 /* ReadTopBar.swift */; };
 		D35599E922E014B00042C133 /* CatalogueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35599E822E014B00042C133 /* CatalogueView.swift */; };
 		D36AEF4F22DEBD16009AE08A /* ReadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36AEF4E22DEBD16009AE08A /* ReadView.swift */; };
+		D36E97AB22E0AA0D00505F72 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36E97AA22E0AA0D00505F72 /* AppConfig.swift */; };
+		D36E97AD22E0ABE100505F72 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36E97AC22E0ABE100505F72 /* NavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +75,8 @@
 		D35599E422E012BD0042C133 /* Reader-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Reader-Bridging-Header.h"; sourceTree = "<group>"; };
 		D35599E822E014B00042C133 /* CatalogueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueView.swift; sourceTree = "<group>"; };
 		D36AEF4E22DEBD16009AE08A /* ReadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadView.swift; sourceTree = "<group>"; };
+		D36E97AA22E0AA0D00505F72 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		D36E97AC22E0ABE100505F72 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +176,7 @@
 				D30E4D3A22DD5C3B00B5D4DA /* BaseViewController.swift */,
 				D30E4D3B22DD5C3B00B5D4DA /* ChapterReadVC.swift */,
 				D35599E022DFFDD90042C133 /* BookListVC.swift */,
+				D36E97AC22E0ABE100505F72 /* NavigationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				D30E4D4222DD5CEC00B5D4DA /* Const.swift */,
+				D36E97AA22E0AA0D00505F72 /* AppConfig.swift */,
 				D30E4D4422DD5CF400B5D4DA /* ReadConfig.swift */,
 				D35599E422E012BD0042C133 /* Reader-Bridging-Header.h */,
 			);
@@ -402,6 +408,7 @@
 				D30E4D4722DD5D3100B5D4DA /* Macro.swift in Sources */,
 				D30E4D7222DD68CB00B5D4DA /* RealmBookTool.swift in Sources */,
 				D30E4D6922DD674400B5D4DA /* MSTTools_Date.swift in Sources */,
+				D36E97AD22E0ABE100505F72 /* NavigationController.swift in Sources */,
 				D30E4D4A22DD5D9D00B5D4DA /* BookModel.swift in Sources */,
 				D30E4D6722DD674400B5D4DA /* MSTTools_Log.swift in Sources */,
 				D35599E322E008F30042C133 /* ReadTopBar.swift in Sources */,
@@ -412,6 +419,7 @@
 				D30E4D6B22DD674400B5D4DA /* String_MST.swift in Sources */,
 				D30E4D6622DD674400B5D4DA /* MSTTools.swift in Sources */,
 				D30E4D3F22DD5C3B00B5D4DA /* ChapterReadVC.swift in Sources */,
+				D36E97AB22E0AA0D00505F72 /* AppConfig.swift in Sources */,
 				D30E4D5522DD658500B5D4DA /* RealmTool.swift in Sources */,
 				D30E4D4322DD5CEC00B5D4DA /* Const.swift in Sources */,
 			);

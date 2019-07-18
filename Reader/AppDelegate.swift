@@ -18,12 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.frame = CGRect(x: 0, y: 0, width: rect.width+0.000001, height: rect.height+0.000001)
         
-        let rootNav = RTRootNavigationController(rootViewController: ViewController())
+        let rootNav = NavigationController(rootViewController: ViewController())
         window?.rootViewController = rootNav
         window?.makeKeyAndVisible()
 
         RealmTool.customInitialize()
-
+        
         return true
     }
 }

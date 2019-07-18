@@ -13,10 +13,10 @@ protocol ReadTopBarDelegate: NSObjectProtocol {
     func topMenuAction()
 }
 
-class ReadTopBar: UIView {
+class ReadTopBar: UINavigationBar {
     
     // MARK: - Properties
-    var delegate: ReadTopBarDelegate?
+    var mDelegate: ReadTopBarDelegate?
 
     // MARK: - Initial Methods
     override init(frame: CGRect) {
@@ -43,10 +43,10 @@ class ReadTopBar: UIView {
     
     // MARK: - Actions
     @objc private func p_backAction() {
-        delegate?.topBackAction()
+        mDelegate?.topBackAction()
     }
     
     @objc private func p_menuAction() {
-        delegate?.topMenuAction()
+        mDelegate?.topMenuAction()
     }
 }

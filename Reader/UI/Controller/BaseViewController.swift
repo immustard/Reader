@@ -32,6 +32,19 @@ class BaseViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
     
+    override func rt_customBackItem(withTarget target: Any!, action: Selector!) -> UIBarButtonItem! {
+        let btn = UIButton(type: .custom)
+        btn.setImage(UIImage(named: "back_dark"), for: .normal)
+        btn.sizeToFit()
+        btn.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+        
+        return UIBarButtonItem(customView: btn)
+    }
+    
+    @objc func backAction() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     // MARK: - UITableViewDataSource & Delegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0
