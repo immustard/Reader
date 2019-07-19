@@ -9,6 +9,8 @@
 import Foundation
 
 // MARK: - 常量
+/// 动画时间
+let kShowAnimationDuration: Double = 0.26
 
 /// 书文件类型
 let ReadTypeUnkown = 0

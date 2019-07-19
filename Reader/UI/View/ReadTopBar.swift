@@ -13,7 +13,7 @@ protocol ReadTopBarDelegate: NSObjectProtocol {
     func topMenuAction()
 }
 
-class ReadTopBar: UINavigationBar {
+class ReadTopBar: UIView {
     
     // MARK: - Properties
     var mDelegate: ReadTopBarDelegate?
@@ -24,21 +24,70 @@ class ReadTopBar: UINavigationBar {
 
         backgroundColor = .white
         
-        let backBtn = UIButton(type: .custom)
-        backBtn.setImage(#imageLiteral(resourceName: "back_dark"), for: .normal)
-        backBtn.frame = CGRect(x: 20, y: mst_bottom-12-30, width: 30, height: 30)
-        backBtn.addTarget(self, action: #selector(p_backAction), for: .touchUpInside)
-        self.addSubview(backBtn)
-        
-        let menuBtn = UIButton(type: .custom)
-        menuBtn.setImage(#imageLiteral(resourceName: "catalogue_dark"), for: .normal)
-        menuBtn.frame = CGRect(x: mst_width-20-30, y: mst_bottom-17-20, width: 30, height: 20)
-        menuBtn.addTarget(self, action: #selector(p_menuAction), for: .touchUpInside)
-        self.addSubview(menuBtn)
+        p_setupSubviews()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func showOrHide(isHidden: Bool, animated: Bool, completion:(() -> Void)?) {
+        var top: CGFloat = 0
+        
+        if isHidden {
+            top = -mst_height
+        }
+        
+        if animated {
+            if isHidden && completion != nil {
+                completion!()
+            }
+            
+            UIView.animate(withDuration: kShowAnimationDuration, animations: {
+                self.mst_top = top
+            }) { (finished) in
+                if !isHidden && completion != nil {
+                    completion!()
+                }
+            }
+        } else {
+            /// 无动画
+            mst_top = top
+            if completion != nil {
+                completion!()
+            }
+        }
+    }
+
+    // MARK - Private Methods
+    private func p_setupSubviews() {
+        let backBtn = UIButton(type: .custom)
+        backBtn.setImage(#imageLiteral(resourceName: "back_dark"), for: .normal)
+        backBtn.addTarget(self, action: #selector(p_backAction), for: .touchUpInside)
+        addSubview(backBtn)
+        
+        backBtn.snp.makeConstraints { (make) in
+            make.bottom.equalTo(-12)
+            make.leading.equalTo(20)
+        }
+        
+        let menuBtn = UIButton(type: .custom)
+        menuBtn.setImage(#imageLiteral(resourceName: "catalogue_dark"), for: .normal)
+        menuBtn.addTarget(self, action: #selector(p_menuAction), for: .touchUpInside)
+        addSubview(menuBtn)
+        menuBtn.snp.makeConstraints { (make) in
+            make.centerY.equalTo(backBtn)
+            make.trailing.equalTo(-20)
+        }
+        
+        let line = UIView()
+        line.backgroundColor = kColorCCC
+        addSubview(line)
+        
+        line.snp.makeConstraints { (make) in
+            make.leading.bottom.trailing.equalTo(0)
+            make.height.equalTo(1)
+        }
     }
     
     // MARK: - Actions

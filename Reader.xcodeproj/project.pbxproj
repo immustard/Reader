@@ -32,8 +32,9 @@
 		D30E4D6D22DD674400B5D4DA /* UIView_MST.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D6522DD674400B5D4DA /* UIView_MST.swift */; };
 		D30E4D7222DD68CB00B5D4DA /* RealmBookTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D7122DD68CB00B5D4DA /* RealmBookTool.swift */; };
 		D318A0E522DDB738004C2FE0 /* RealmChapterTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D318A0E422DDB738004C2FE0 /* RealmChapterTool.swift */; };
+		D34A8B8022E1539C007C05A4 /* MSTTools_Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34A8B7F22E1539C007C05A4 /* MSTTools_Device.swift */; };
+		D34A8B8222E15714007C05A4 /* ReadTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34A8B8122E15714007C05A4 /* ReadTopBar.swift */; };
 		D35599E122DFFDD90042C133 /* BookListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35599E022DFFDD90042C133 /* BookListVC.swift */; };
-		D35599E322E008F30042C133 /* ReadTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35599E222E008F30042C133 /* ReadTopBar.swift */; };
 		D35599E922E014B00042C133 /* CatalogueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35599E822E014B00042C133 /* CatalogueView.swift */; };
 		D36AEF4F22DEBD16009AE08A /* ReadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36AEF4E22DEBD16009AE08A /* ReadView.swift */; };
 		D36E97AB22E0AA0D00505F72 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36E97AA22E0AA0D00505F72 /* AppConfig.swift */; };
@@ -70,8 +71,9 @@
 		D30E4D6522DD674400B5D4DA /* UIView_MST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView_MST.swift; sourceTree = "<group>"; };
 		D30E4D7122DD68CB00B5D4DA /* RealmBookTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBookTool.swift; sourceTree = "<group>"; };
 		D318A0E422DDB738004C2FE0 /* RealmChapterTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmChapterTool.swift; sourceTree = "<group>"; };
+		D34A8B7F22E1539C007C05A4 /* MSTTools_Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSTTools_Device.swift; sourceTree = "<group>"; };
+		D34A8B8122E15714007C05A4 /* ReadTopBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadTopBar.swift; sourceTree = "<group>"; };
 		D35599E022DFFDD90042C133 /* BookListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListVC.swift; sourceTree = "<group>"; };
-		D35599E222E008F30042C133 /* ReadTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadTopBar.swift; sourceTree = "<group>"; };
 		D35599E422E012BD0042C133 /* Reader-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Reader-Bridging-Header.h"; sourceTree = "<group>"; };
 		D35599E822E014B00042C133 /* CatalogueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueView.swift; sourceTree = "<group>"; };
 		D36AEF4E22DEBD16009AE08A /* ReadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadView.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				D30E4D5E22DD674400B5D4DA /* MSTTools_Log.swift */,
 				D30E4D5F22DD674400B5D4DA /* MSTTools_File.swift */,
 				D30E4D6022DD674400B5D4DA /* MSTTools_Date.swift */,
+				D34A8B7F22E1539C007C05A4 /* MSTTools_Device.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -255,7 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				D36AEF4E22DEBD16009AE08A /* ReadView.swift */,
-				D35599E222E008F30042C133 /* ReadTopBar.swift */,
+				D34A8B8122E15714007C05A4 /* ReadTopBar.swift */,
 				D35599E822E014B00042C133 /* CatalogueView.swift */,
 			);
 			path = View;
@@ -407,11 +410,12 @@
 				D30E4D4522DD5CF400B5D4DA /* ReadConfig.swift in Sources */,
 				D30E4D4722DD5D3100B5D4DA /* Macro.swift in Sources */,
 				D30E4D7222DD68CB00B5D4DA /* RealmBookTool.swift in Sources */,
+				D34A8B8022E1539C007C05A4 /* MSTTools_Device.swift in Sources */,
 				D30E4D6922DD674400B5D4DA /* MSTTools_Date.swift in Sources */,
 				D36E97AD22E0ABE100505F72 /* NavigationController.swift in Sources */,
+				D34A8B8222E15714007C05A4 /* ReadTopBar.swift in Sources */,
 				D30E4D4A22DD5D9D00B5D4DA /* BookModel.swift in Sources */,
 				D30E4D6722DD674400B5D4DA /* MSTTools_Log.swift in Sources */,
-				D35599E322E008F30042C133 /* ReadTopBar.swift in Sources */,
 				D30E4D5A22DD65EC00B5D4DA /* ViewController.swift in Sources */,
 				D30E4D6D22DD674400B5D4DA /* UIView_MST.swift in Sources */,
 				D35599E922E014B00042C133 /* CatalogueView.swift in Sources */,

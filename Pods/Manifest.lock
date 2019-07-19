@@ -7,22 +7,26 @@ PODS:
   - RTRootNavigationController (0.7.1):
     - RTRootNavigationController/Core (= 0.7.1)
   - RTRootNavigationController/Core (0.7.1)
+  - SnapKit (5.0.0)
 
 DEPENDENCIES:
   - RealmSwift
   - RTRootNavigationController
+  - SnapKit (~> 5.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Realm
     - RealmSwift
     - RTRootNavigationController
+    - SnapKit
 
 SPEC CHECKSUMS:
   Realm: c204f1a890f07dea43b14132a6aad118c054b8f2
   RealmSwift: 4d3c9233544b9cd08a8913e0872b9038eb99b054
   RTRootNavigationController: afa6913402be26f8326f7f37fc1550aa67baddcc
+  SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
 
-PODFILE CHECKSUM: 14467aa0751f3021b9ffdb2f88b239f903116ae4
+PODFILE CHECKSUM: 30f978b4c98053211208afc6cced6acc54fbb2c8
 
 COCOAPODS: 1.7.4

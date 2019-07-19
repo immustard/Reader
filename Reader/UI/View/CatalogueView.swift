@@ -11,7 +11,6 @@ import UIKit
 class CatalogueView: UIView, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
 
     // MARK: - Properties
-    private let AnimationDuration: Double = 0.26
     private let HeaderViewHeight: CGFloat = 100.0
 
     private var tableView: UITableView!
@@ -50,13 +49,13 @@ class CatalogueView: UIView, UITableViewDataSource, UITableViewDelegate, UIGestu
     // MARK: - Instance Methods
     // TODO: 完善动画
     func showAnimation() {
-        UIView.animate(withDuration: AnimationDuration, animations: {
+        UIView.animate(withDuration: kShowAnimationDuration, animations: {
             self.mst_left = 0
         })
     }
     
     func hideAnimation() {
-        UIView.animate(withDuration: AnimationDuration, animations: {
+        UIView.animate(withDuration: kShowAnimationDuration, animations: {
             self.mst_left = kScreenWidth
         })
     }
