@@ -34,6 +34,7 @@
 		D318A0E522DDB738004C2FE0 /* RealmChapterTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D318A0E422DDB738004C2FE0 /* RealmChapterTool.swift */; };
 		D34A8B8022E1539C007C05A4 /* MSTTools_Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34A8B7F22E1539C007C05A4 /* MSTTools_Device.swift */; };
 		D34A8B8222E15714007C05A4 /* ReadTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34A8B8122E15714007C05A4 /* ReadTopBar.swift */; };
+		D34A8B8422E163D7007C05A4 /* CustomStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34A8B8322E163D7007C05A4 /* CustomStatusView.swift */; };
 		D35599E122DFFDD90042C133 /* BookListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35599E022DFFDD90042C133 /* BookListVC.swift */; };
 		D35599E922E014B00042C133 /* CatalogueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35599E822E014B00042C133 /* CatalogueView.swift */; };
 		D36AEF4F22DEBD16009AE08A /* ReadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36AEF4E22DEBD16009AE08A /* ReadView.swift */; };
@@ -73,6 +74,7 @@
 		D318A0E422DDB738004C2FE0 /* RealmChapterTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmChapterTool.swift; sourceTree = "<group>"; };
 		D34A8B7F22E1539C007C05A4 /* MSTTools_Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSTTools_Device.swift; sourceTree = "<group>"; };
 		D34A8B8122E15714007C05A4 /* ReadTopBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadTopBar.swift; sourceTree = "<group>"; };
+		D34A8B8322E163D7007C05A4 /* CustomStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStatusView.swift; sourceTree = "<group>"; };
 		D35599E022DFFDD90042C133 /* BookListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListVC.swift; sourceTree = "<group>"; };
 		D35599E422E012BD0042C133 /* Reader-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Reader-Bridging-Header.h"; sourceTree = "<group>"; };
 		D35599E822E014B00042C133 /* CatalogueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueView.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				D36AEF4E22DEBD16009AE08A /* ReadView.swift */,
 				D34A8B8122E15714007C05A4 /* ReadTopBar.swift */,
 				D35599E822E014B00042C133 /* CatalogueView.swift */,
+				D34A8B8322E163D7007C05A4 /* CustomStatusView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				D30E4D1022DD5B9F00B5D4DA /* AppDelegate.swift in Sources */,
 				D30E4D5222DD609600B5D4DA /* ReadUtilities.swift in Sources */,
 				D30E4D4522DD5CF400B5D4DA /* ReadConfig.swift in Sources */,
+				D34A8B8422E163D7007C05A4 /* CustomStatusView.swift in Sources */,
 				D30E4D4722DD5D3100B5D4DA /* Macro.swift in Sources */,
 				D30E4D7222DD68CB00B5D4DA /* RealmBookTool.swift in Sources */,
 				D34A8B8022E1539C007C05A4 /* MSTTools_Device.swift in Sources */,
@@ -566,7 +570,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2M4QJR2FL;
+				DEVELOPMENT_TEAM = LB9Z2Q6D4D;
 				INFOPLIST_FILE = "$(SRCROOT)/Reader/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -589,7 +593,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B2M4QJR2FL;
+				DEVELOPMENT_TEAM = LB9Z2Q6D4D;
 				INFOPLIST_FILE = "$(SRCROOT)/Reader/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

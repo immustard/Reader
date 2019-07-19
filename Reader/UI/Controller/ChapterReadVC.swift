@@ -16,6 +16,8 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate, UIGestureRecognizer
     private var _topBar: ReadTopBar!
     
     private var _catalogueView: CatalogueView!
+    
+    private var _statusView: CustomStatusView!
 
     private var _isBarHidden: Bool = true
     
@@ -40,6 +42,9 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate, UIGestureRecognizer
         
         _catalogueView = CatalogueView(model: self.model)
         view.addSubview(_catalogueView)
+        
+        _statusView = CustomStatusView(frame: CGRect(x: 0, y: kScreenHeight-20, width: kScreenWidth, height: 20))
+        view.addSubview(_statusView)
         
         p_setBarHidden(false)
         
