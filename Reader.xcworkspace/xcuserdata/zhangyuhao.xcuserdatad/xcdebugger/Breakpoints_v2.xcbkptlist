@@ -388,11 +388,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Reader/UI/View/CustomStatusView.swift"
-            timestampString = "585197824.077378"
+            timestampString = "585331097.464211"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "p_batteryDidChanged(_:)"
             landmarkType = "7">
          </BreakpointContent>

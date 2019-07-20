@@ -37,6 +37,7 @@
 		D34A8B8422E163D7007C05A4 /* CustomStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34A8B8322E163D7007C05A4 /* CustomStatusView.swift */; };
 		D35599E122DFFDD90042C133 /* BookListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35599E022DFFDD90042C133 /* BookListVC.swift */; };
 		D35599E922E014B00042C133 /* CatalogueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35599E822E014B00042C133 /* CatalogueView.swift */; };
+		D355D4BC22E3710B002B3895 /* TODOList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D355D4BB22E3710B002B3895 /* TODOList.swift */; };
 		D36AEF4F22DEBD16009AE08A /* ReadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36AEF4E22DEBD16009AE08A /* ReadView.swift */; };
 		D36E97AB22E0AA0D00505F72 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36E97AA22E0AA0D00505F72 /* AppConfig.swift */; };
 		D36E97AD22E0ABE100505F72 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36E97AC22E0ABE100505F72 /* NavigationController.swift */; };
@@ -78,6 +79,7 @@
 		D35599E022DFFDD90042C133 /* BookListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListVC.swift; sourceTree = "<group>"; };
 		D35599E422E012BD0042C133 /* Reader-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Reader-Bridging-Header.h"; sourceTree = "<group>"; };
 		D35599E822E014B00042C133 /* CatalogueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueView.swift; sourceTree = "<group>"; };
+		D355D4BB22E3710B002B3895 /* TODOList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TODOList.swift; sourceTree = "<group>"; };
 		D36AEF4E22DEBD16009AE08A /* ReadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadView.swift; sourceTree = "<group>"; };
 		D36E97AA22E0AA0D00505F72 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		D36E97AC22E0ABE100505F72 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				D30E4D1622DD5BA000B5D4DA /* Assets.xcassets */,
 				D30E4D1822DD5BA000B5D4DA /* LaunchScreen.storyboard */,
 				D30E4D1B22DD5BA000B5D4DA /* Info.plist */,
+				D355D4BB22E3710B002B3895 /* TODOList.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				D30E4D6D22DD674400B5D4DA /* UIView_MST.swift in Sources */,
 				D35599E922E014B00042C133 /* CatalogueView.swift in Sources */,
 				D36AEF4F22DEBD16009AE08A /* ReadView.swift in Sources */,
+				D355D4BC22E3710B002B3895 /* TODOList.swift in Sources */,
 				D30E4D6B22DD674400B5D4DA /* String_MST.swift in Sources */,
 				D30E4D6622DD674400B5D4DA /* MSTTools.swift in Sources */,
 				D30E4D3F22DD5C3B00B5D4DA /* ChapterReadVC.swift in Sources */,
