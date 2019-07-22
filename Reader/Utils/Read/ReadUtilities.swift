@@ -32,7 +32,10 @@ class ReadUtilities: NSObject {
                 book.chapterArray = array
                 book.content = content
                 book.cachePath = path
-                
+
+                /// 保存阅读记录
+                RealmRecordTool.updateRecord(book.record)
+
                 /// 保存书目
                 RealmBookTool.insert(book)
 
@@ -142,11 +145,12 @@ class ReadUtilities: NSObject {
     }
 }
 
+// MARK: - Book
 extension ReadUtilities {
     /// 书籍目录
     class func bookFolder(_ bookID: Int) -> String? {
         do {
-            let path = MSTTools.cachePath() + "Books/\(bookID)"
+            let path = MSTTools.documentsPath() + "Books/\(bookID)"
             try MSTTools.createDirctory(path: path)
 
             return path
@@ -171,7 +175,7 @@ extension ReadUtilities {
                 MSTTools.writeContentToFile(filePath: contentPath, content: content)
             }
             
-            return "/Caches/Books/\(id)/content.txt"
+            return "/Documents/Books/\(id)/content.txt"
         } else {
             return ""
         }
@@ -190,6 +194,7 @@ extension ReadUtilities {
     }
 }
 
+// MARK: - Chapter
 extension ReadUtilities {
     class func chapterFolder(byBookID id: Int) -> String? {
         if let bookPath = bookFolder(id) {
@@ -222,7 +227,7 @@ extension ReadUtilities {
                 MSTTools.writeContentToFile(filePath: contentPath, content: content)
             }
             
-            return "/Caches/Books/\(bookID)/Chapters/\(chapterName).txt"
+            return "/Documents/Books/\(bookID)/Chapters/\(chapterName).txt"
         } else {
             return ""
         }

@@ -10,8 +10,8 @@ import RealmSwift
 
 private let _db = RealmTool.db()
 
+// MARK: - Insert
 class RealmChapterTool: NSObject {
-    // MARK: - Insert
     class func insert(_ chapter: ChapterModel) {
         try! _db.write {
             _db.add(chapter)
@@ -25,8 +25,19 @@ class RealmChapterTool: NSObject {
     }
 }
 
+// MARK: - Delete
 extension RealmChapterTool {
-    // MARK: - Update
+    class func delete(byBookID id: Int) {
+        let list = query(byBookID: id)
+        
+        try! _db.write {
+            _db.delete(list)
+        }
+    }
+}
+
+// MARK: - Update
+extension RealmChapterTool {
     class func updatePageCount(_ pageCount: String, bookID: Int, idx: Int) {
         try! _db.write {
             let list = _db.objects(ChapterModel.self).filter("bookID = \(bookID) AND idx = \(idx)")
@@ -37,9 +48,15 @@ extension RealmChapterTool {
 
 extension RealmChapterTool {
     // MARK: - Query
-    class func query(byBookID id: String) -> Results<ChapterModel> {
-        let list = _db.objects(ChapterModel.self).filter("bookID = '\(id)'")
+    class func query(byBookID id: Int) -> Results<ChapterModel> {
+        let list = _db.objects(ChapterModel.self).filter("bookID = \(id)")
         
         return list
+    }
+    
+    class func query(byBookID bookID: Int, chapterID: Int) -> ChapterModel? {
+        let list = _db.objects(ChapterModel.self).filter("bookID = \(bookID) AND idx = \(chapterID)")
+    
+        return list.first
     }
 }

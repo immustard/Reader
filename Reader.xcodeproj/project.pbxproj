@@ -32,12 +32,15 @@
 		D30E4D6D22DD674400B5D4DA /* UIView_MST.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D6522DD674400B5D4DA /* UIView_MST.swift */; };
 		D30E4D7222DD68CB00B5D4DA /* RealmBookTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D7122DD68CB00B5D4DA /* RealmBookTool.swift */; };
 		D318A0E522DDB738004C2FE0 /* RealmChapterTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D318A0E422DDB738004C2FE0 /* RealmChapterTool.swift */; };
+		D34A4F5A22E59B1500B1001B /* RealmRecordTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34A4F5922E59B1500B1001B /* RealmRecordTool.swift */; };
 		D34A8B8022E1539C007C05A4 /* MSTTools_Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34A8B7F22E1539C007C05A4 /* MSTTools_Device.swift */; };
 		D34A8B8222E15714007C05A4 /* ReadTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34A8B8122E15714007C05A4 /* ReadTopBar.swift */; };
 		D34A8B8422E163D7007C05A4 /* CustomStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34A8B8322E163D7007C05A4 /* CustomStatusView.swift */; };
 		D35599E122DFFDD90042C133 /* BookListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35599E022DFFDD90042C133 /* BookListVC.swift */; };
 		D35599E922E014B00042C133 /* CatalogueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35599E822E014B00042C133 /* CatalogueView.swift */; };
 		D355D4BC22E3710B002B3895 /* TODOList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D355D4BB22E3710B002B3895 /* TODOList.swift */; };
+		D355D4BE22E374DC002B3895 /* ReadImplVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D355D4BD22E374DC002B3895 /* ReadImplVC.swift */; };
+		D355D4C022E53AE5002B3895 /* RecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D355D4BF22E53AE5002B3895 /* RecordModel.swift */; };
 		D36AEF4F22DEBD16009AE08A /* ReadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36AEF4E22DEBD16009AE08A /* ReadView.swift */; };
 		D36E97AB22E0AA0D00505F72 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36E97AA22E0AA0D00505F72 /* AppConfig.swift */; };
 		D36E97AD22E0ABE100505F72 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36E97AC22E0ABE100505F72 /* NavigationController.swift */; };
@@ -73,6 +76,7 @@
 		D30E4D6522DD674400B5D4DA /* UIView_MST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView_MST.swift; sourceTree = "<group>"; };
 		D30E4D7122DD68CB00B5D4DA /* RealmBookTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBookTool.swift; sourceTree = "<group>"; };
 		D318A0E422DDB738004C2FE0 /* RealmChapterTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmChapterTool.swift; sourceTree = "<group>"; };
+		D34A4F5922E59B1500B1001B /* RealmRecordTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRecordTool.swift; sourceTree = "<group>"; };
 		D34A8B7F22E1539C007C05A4 /* MSTTools_Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSTTools_Device.swift; sourceTree = "<group>"; };
 		D34A8B8122E15714007C05A4 /* ReadTopBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadTopBar.swift; sourceTree = "<group>"; };
 		D34A8B8322E163D7007C05A4 /* CustomStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStatusView.swift; sourceTree = "<group>"; };
@@ -80,6 +84,8 @@
 		D35599E422E012BD0042C133 /* Reader-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Reader-Bridging-Header.h"; sourceTree = "<group>"; };
 		D35599E822E014B00042C133 /* CatalogueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueView.swift; sourceTree = "<group>"; };
 		D355D4BB22E3710B002B3895 /* TODOList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TODOList.swift; sourceTree = "<group>"; };
+		D355D4BD22E374DC002B3895 /* ReadImplVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadImplVC.swift; sourceTree = "<group>"; };
+		D355D4BF22E53AE5002B3895 /* RecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordModel.swift; sourceTree = "<group>"; };
 		D36AEF4E22DEBD16009AE08A /* ReadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadView.swift; sourceTree = "<group>"; };
 		D36E97AA22E0AA0D00505F72 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		D36E97AC22E0ABE100505F72 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -184,6 +190,7 @@
 				D30E4D3B22DD5C3B00B5D4DA /* ChapterReadVC.swift */,
 				D35599E022DFFDD90042C133 /* BookListVC.swift */,
 				D36E97AC22E0ABE100505F72 /* NavigationController.swift */,
+				D355D4BD22E374DC002B3895 /* ReadImplVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -204,6 +211,7 @@
 			children = (
 				D30E4D4922DD5D9D00B5D4DA /* BookModel.swift */,
 				D30E4D4C22DD5DAE00B5D4DA /* ChapterModel.swift */,
+				D355D4BF22E53AE5002B3895 /* RecordModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -255,6 +263,7 @@
 				D30E4D5422DD658500B5D4DA /* RealmTool.swift */,
 				D30E4D7122DD68CB00B5D4DA /* RealmBookTool.swift */,
 				D318A0E422DDB738004C2FE0 /* RealmChapterTool.swift */,
+				D34A4F5922E59B1500B1001B /* RealmRecordTool.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -405,11 +414,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D30E4D5122DD609600B5D4DA /* ReadParser.swift in Sources */,
+				D355D4BE22E374DC002B3895 /* ReadImplVC.swift in Sources */,
 				D30E4D4D22DD5DAE00B5D4DA /* ChapterModel.swift in Sources */,
 				D30E4D6822DD674400B5D4DA /* MSTTools_File.swift in Sources */,
 				D35599E122DFFDD90042C133 /* BookListVC.swift in Sources */,
 				D30E4D3E22DD5C3B00B5D4DA /* BaseViewController.swift in Sources */,
 				D30E4D6C22DD674400B5D4DA /* UIColor_MST.swift in Sources */,
+				D34A4F5A22E59B1500B1001B /* RealmRecordTool.swift in Sources */,
 				D318A0E522DDB738004C2FE0 /* RealmChapterTool.swift in Sources */,
 				D30E4D1022DD5B9F00B5D4DA /* AppDelegate.swift in Sources */,
 				D30E4D5222DD609600B5D4DA /* ReadUtilities.swift in Sources */,
@@ -431,6 +442,7 @@
 				D30E4D6B22DD674400B5D4DA /* String_MST.swift in Sources */,
 				D30E4D6622DD674400B5D4DA /* MSTTools.swift in Sources */,
 				D30E4D3F22DD5C3B00B5D4DA /* ChapterReadVC.swift in Sources */,
+				D355D4C022E53AE5002B3895 /* RecordModel.swift in Sources */,
 				D36E97AB22E0AA0D00505F72 /* AppConfig.swift in Sources */,
 				D30E4D5522DD658500B5D4DA /* RealmTool.swift in Sources */,
 				D30E4D4322DD5CEC00B5D4DA /* Const.swift in Sources */,

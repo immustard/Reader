@@ -90,7 +90,8 @@ extension ChapterModel {
             length = content.mst_charLength - _pageArray[page]
         }
         
-        return content.mst_substring(range: NSRange(location: local, length: length)) ?? ""
+        let str = content.mst_substring(range: NSRange(location: local, length: length)) ?? ""
+        return str
     }
 
     func updateFont() {

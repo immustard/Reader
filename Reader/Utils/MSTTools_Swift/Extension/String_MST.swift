@@ -34,7 +34,7 @@ public extension String {
     }
     
     func mst_substring(range: NSRange) -> String? {
-        guard mst_charLength > range.location+range.length else {
+        guard mst_charLength >= range.location+range.length else {
             return nil
         }
 

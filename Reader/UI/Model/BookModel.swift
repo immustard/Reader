@@ -40,6 +40,28 @@ class BookModel: Object, NSCopying {
     
     /// 最后一次打开时间
     @objc dynamic var lastOpenTime: String = "0"
+    /// 阅读记录(realm)
+    private let recordList = List<RecordModel>()
+    /// 阅读记录
+    var record: RecordModel {
+        get {
+            if let r = recordList.first {
+                return r
+            } else {
+                let r = RecordModel()
+                r.bookID = self.id
+                
+                recordList.append(r)
+
+                return r
+            }
+        }
+        set {
+            recordList.removeAll()
+            recordList.append(newValue)
+        }
+    }
+    
     
     override var description: String {
         return "book id: \(id)" + ", title: \(title)" + ", contentLength: \(content.mst_charLength)" + ", chapterCount: \(chapters.count)" + ", type: \(readType)"

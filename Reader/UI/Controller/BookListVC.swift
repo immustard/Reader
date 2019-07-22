@@ -37,7 +37,7 @@ class BookListVC: BaseViewController {
 
         let model = books[indexPath.row]
         cell.textLabel?.text = model.title
-        
+        print(model.record)
         return cell
     }
     

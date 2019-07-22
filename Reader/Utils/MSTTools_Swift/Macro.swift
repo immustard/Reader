@@ -58,3 +58,7 @@ var kColor999: UIColor {
 var kColorCCC: UIColor {
     return UIColor.mst_colorWithHexString("cccccc")
 }
+
+var kColorRandom: UIColor {
+    return UIColor.mst_random();
+}

@@ -8,7 +8,7 @@
 
 import RealmSwift
 
-let kDatabaseVersion: UInt64 = 3
+let kDatabaseVersion: UInt64 = 6
 
 class RealmTool: NSObject {
     class func customInitialize() {

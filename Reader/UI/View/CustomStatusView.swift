@@ -30,7 +30,7 @@ class CustomStatusView: UIView {
     // MARK: - Initial Methods
     override init(frame: CGRect) {
         super.init(frame: frame)
-                
+        
         addSubview(_batteryLabel)
         _batteryLabel.snp.makeConstraints { (make) in
             make.trailing.equalTo(kIsPhoneX ? -40 : -15)

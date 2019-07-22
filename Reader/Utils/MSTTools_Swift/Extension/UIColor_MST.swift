@@ -41,7 +41,16 @@ public extension UIColor {
         
         return UIColor(red: red, green: green, blue: blue, alpha: alpha)
     }
+    
+    static func mst_random() -> UIColor {
+        let r: CGFloat = CGFloat(arc4random() % 255) / 255
+        let g: CGFloat = CGFloat(arc4random() % 255) / 255
+        let b: CGFloat = CGFloat(arc4random() % 255) / 255
+        
+        return UIColor(red: r, green: g, blue: b, alpha: 1)
+    }
 
+    // MARK - Private Methods
     private static func p_colorComponent(fromStrig string: String, start: Int, length: Int) -> CGFloat {
         let substring = string.mst_substring(range: Range(start...start+length))!
         let fullHex = length == 2 ? substring : "\(substring)\(substring)"
