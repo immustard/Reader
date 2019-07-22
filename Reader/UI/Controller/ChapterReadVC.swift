@@ -42,6 +42,12 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate, UIGestureRecognizer
     // 将要展示的页数
     private var _pageChange: Int = 0
     
+    // 是否正在翻页(点击时启用)
+    private var _isTransition: Bool = false
+    
+    private let _leftRect = CGRect(x: 0, y: 0, width: kScreenWidth/3, height: kScreenHeight)
+    private let _rightRect = CGRect(x: kScreenWidth*2/3, y: 0, width: kScreenWidth, height: kScreenHeight)
+    
     var model: BookModel!
     
     
@@ -76,8 +82,8 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate, UIGestureRecognizer
         
         p_setBarHidden(false)
         
-        //        let tap = view.mst_addTapGesture(target: self, action: #selector(p_tapAction))
-        //        tap.delegate = self
+        let tap = view.mst_addTapGesture(target: self, action: #selector(p_tapAction(_:)))
+        tap.delegate = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -109,9 +115,27 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate, UIGestureRecognizer
         
     }
     
-    @objc private func p_tapAction() {
-        _isBarHidden = !_isBarHidden
-        p_setBarHidden(true)
+    @objc private func p_tapAction(_ gesture: UITapGestureRecognizer) {
+        let point = gesture.location(in: view)
+
+        // 点击中间或者工具栏展示时
+        if (!_leftRect.contains(point) && !_rightRect.contains(point)) || !_isBarHidden {
+            _isBarHidden = !_isBarHidden
+            p_setBarHidden(true)
+        } else {
+            guard !_isTransition else { return }
+            if p_calculatePage(isNext: _rightRect.contains(point)) {
+                _chapter = _chapterChange
+                _page = _pageChange
+//                _isTransition = true
+                // TODO: 翻页动画的时候, 快速点击有bug
+                _pageVC.setViewControllers([p_readView(chapter: _chapterChange, pageCount: _pageChange)], direction: _rightRect.contains(point) ? .forward : .reverse, animated: false) { (finished) in
+                    if finished {
+//                        self._isTransition = false
+                    }
+                }
+            }
+        }
     }
     
     private func p_readView(chapter: Int, pageCount: Int) -> ReadImplVC {
@@ -123,44 +147,66 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate, UIGestureRecognizer
         
         return _readView
     }
+    
+    private func p_calculatePage(isNext: Bool) -> Bool {
+        if isNext {
+            _pageChange = _page
+            _chapterChange = _chapter
+            
+            if (_pageChange == model.chapterArray.last!.pageCount-1 && _chapterChange == model.chapterArray.count-1) {
+                return false
+            }
+            
+            if (_pageChange == model.chapterArray[_chapterChange].pageCount-1) {
+                _chapterChange += 1
+                _pageChange = 0
+            } else{
+                _pageChange += 1
+            }
+        } else {
+            _pageChange = _page
+            _chapterChange = _chapter
+            
+            if _chapterChange == 0 && _pageChange == 0 {
+                return false
+            }
+            
+            if _pageChange == 0 {
+                _chapterChange -= 1
+                _pageChange = model.chapterArray[_chapterChange].pageCount-1
+            } else {
+                _pageChange -= 1
+            }
+        }
+        
+        return true
+    }
 }
 
 // MARK: - UIPageViewControllerDataSource & Delegate
 extension ChapterReadVC {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        _pageChange = _page
-        _chapterChange = _chapter
+//        if _isTransition {
+//            return p_readView(chapter: _chapterChange, pageCount: _pageChange)
+//        }
         
-        if _chapterChange == 0 && _pageChange == 0 {
+        if !p_calculatePage(isNext: false) {
             return nil
-        }
-        
-        if _pageChange == 0 {
-            _chapterChange -= 1
-            _pageChange = model.chapterArray[_chapterChange].pageCount-1
         } else {
-            _pageChange -= 1
+            return p_readView(chapter: _chapterChange, pageCount: _pageChange)
         }
-        
-        return p_readView(chapter: _chapterChange, pageCount: _pageChange)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        _pageChange = _page
-        _chapterChange = _chapter
-        
-        if (_pageChange == model.chapterArray.last!.pageCount-1 && _chapterChange == model.chapterArray.count-1) {
+//        if _isTransition {
+//            return p_readView(chapter: _chapterChange, pageCount: _pageChange)
+//        }
+
+        if !p_calculatePage(isNext: true) {
             return nil
+        } else {
+            return p_readView(chapter: _chapterChange, pageCount: _pageChange)
         }
-        
-        if (_pageChange == model.chapterArray[_chapterChange].pageCount-1) {
-            _chapterChange += 1
-            _pageChange = 0
-        } else{
-            _pageChange += 1
-        }
-        
-        return p_readView(chapter: _chapterChange, pageCount: _pageChange)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
@@ -174,6 +220,9 @@ extension ChapterReadVC {
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        _statusView.reload()
+
+        if _isTransition { return }
         
         if !completed {
             let readView = previousViewControllers.first as! ReadImplVC

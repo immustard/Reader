@@ -57,6 +57,11 @@ class CustomStatusView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func reload() {
+        p_refreshTime()
+    }
+    
+    // MARK - Private Methods
     private func p_refreshTime() {
         _timeLabel.text = MSTTools.formatTimeRightNow(format: "hh:mm")
     }
