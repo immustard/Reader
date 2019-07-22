@@ -124,16 +124,22 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate, UIGestureRecognizer
             p_setBarHidden(true)
         } else {
             guard !_isTransition else { return }
+
+            let animated = false
             if p_calculatePage(isNext: _rightRect.contains(point)) {
                 _chapter = _chapterChange
                 _page = _pageChange
 //                _isTransition = true
                 // TODO: 翻页动画的时候, 快速点击有bug
-                _pageVC.setViewControllers([p_readView(chapter: _chapterChange, pageCount: _pageChange)], direction: _rightRect.contains(point) ? .forward : .reverse, animated: false) { (finished) in
+                _pageVC.setViewControllers([p_readView(chapter: _chapterChange, pageCount: _pageChange)], direction: _rightRect.contains(point) ? .forward : .reverse, animated: animated) { (finished) in
                     if finished {
 //                        self._isTransition = false
                     }
                 }
+            }
+            
+            if !animated {
+                p_updateRecord(chapter: _chapter, page: _page)
             }
         }
     }
@@ -222,7 +228,7 @@ extension ChapterReadVC {
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         _statusView.reload()
 
-        if _isTransition { return }
+//        if _isTransition { return }
         
         if !completed {
             let readView = previousViewControllers.first as! ReadImplVC
@@ -230,6 +236,7 @@ extension ChapterReadVC {
             _page = readView.recordModel!.page
             _chapter = readView.recordModel!.chapter
         } else {
+//            _isTransition = false
             p_updateRecord(chapter: _chapter, page: _page)
         }
     }
