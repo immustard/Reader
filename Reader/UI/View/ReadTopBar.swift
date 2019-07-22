@@ -39,6 +39,10 @@ class ReadTopBar: UIView {
         }
         
         if animated {
+            /*
+             如果隐藏, 此时回调
+             目的是让系统状态栏先消失
+             */
             if isHidden && completion != nil {
                 completion!()
             }

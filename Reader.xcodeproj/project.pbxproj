@@ -33,6 +33,7 @@
 		D30E4D7222DD68CB00B5D4DA /* RealmBookTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D7122DD68CB00B5D4DA /* RealmBookTool.swift */; };
 		D318A0E522DDB738004C2FE0 /* RealmChapterTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D318A0E422DDB738004C2FE0 /* RealmChapterTool.swift */; };
 		D34A4F5A22E59B1500B1001B /* RealmRecordTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34A4F5922E59B1500B1001B /* RealmRecordTool.swift */; };
+		D34A4F5E22E5FE2D00B1001B /* ReadToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34A4F5D22E5FE2D00B1001B /* ReadToolBar.swift */; };
 		D34A8B8022E1539C007C05A4 /* MSTTools_Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34A8B7F22E1539C007C05A4 /* MSTTools_Device.swift */; };
 		D34A8B8222E15714007C05A4 /* ReadTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34A8B8122E15714007C05A4 /* ReadTopBar.swift */; };
 		D34A8B8422E163D7007C05A4 /* CustomStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34A8B8322E163D7007C05A4 /* CustomStatusView.swift */; };
@@ -77,6 +78,7 @@
 		D30E4D7122DD68CB00B5D4DA /* RealmBookTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBookTool.swift; sourceTree = "<group>"; };
 		D318A0E422DDB738004C2FE0 /* RealmChapterTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmChapterTool.swift; sourceTree = "<group>"; };
 		D34A4F5922E59B1500B1001B /* RealmRecordTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRecordTool.swift; sourceTree = "<group>"; };
+		D34A4F5D22E5FE2D00B1001B /* ReadToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadToolBar.swift; sourceTree = "<group>"; };
 		D34A8B7F22E1539C007C05A4 /* MSTTools_Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSTTools_Device.swift; sourceTree = "<group>"; };
 		D34A8B8122E15714007C05A4 /* ReadTopBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadTopBar.swift; sourceTree = "<group>"; };
 		D34A8B8322E163D7007C05A4 /* CustomStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStatusView.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 			children = (
 				D36AEF4E22DEBD16009AE08A /* ReadView.swift */,
 				D34A8B8122E15714007C05A4 /* ReadTopBar.swift */,
+				D34A4F5D22E5FE2D00B1001B /* ReadToolBar.swift */,
 				D35599E822E014B00042C133 /* CatalogueView.swift */,
 				D34A8B8322E163D7007C05A4 /* CustomStatusView.swift */,
 			);
@@ -420,6 +423,7 @@
 				D35599E122DFFDD90042C133 /* BookListVC.swift in Sources */,
 				D30E4D3E22DD5C3B00B5D4DA /* BaseViewController.swift in Sources */,
 				D30E4D6C22DD674400B5D4DA /* UIColor_MST.swift in Sources */,
+				D34A4F5E22E5FE2D00B1001B /* ReadToolBar.swift in Sources */,
 				D34A4F5A22E59B1500B1001B /* RealmRecordTool.swift in Sources */,
 				D318A0E522DDB738004C2FE0 /* RealmChapterTool.swift in Sources */,
 				D30E4D1022DD5B9F00B5D4DA /* AppDelegate.swift in Sources */,

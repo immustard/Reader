@@ -24,6 +24,8 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate, UIGestureRecognizer
     
     private var _topBar: ReadTopBar!
     
+    private var _bottomBar: ReadToolBar!
+    
     private var _catalogueView: CatalogueView!
     
     private var _statusView: CustomStatusView!
@@ -70,15 +72,23 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate, UIGestureRecognizer
         _pageVC.setViewControllers([p_readView(chapter: model.record.chapter, pageCount: model.record.page)], direction: .forward, animated: true, completion: nil)
         view.addSubview(_pageVC.view)
         
+        _statusView = CustomStatusView(frame: CGRect(x: 0, y: kScreenHeight-20, width: kScreenWidth, height: 20))
+        view.addSubview(_statusView)
+
         _topBar = ReadTopBar(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: kNavHeight))
         _topBar.mDelegate = self
         view.addSubview(_topBar)
         
+        _bottomBar = ReadToolBar()
+        view.addSubview(_bottomBar)
+        _bottomBar.snp.makeConstraints { (make) in
+            make.leading.trailing.equalTo(0)
+            make.height.equalTo(kTabHeight)
+            make.top.equalTo(kScreenHeight)
+        }
+        
         _catalogueView = CatalogueView(model: self.model)
         view.addSubview(_catalogueView)
-        
-        _statusView = CustomStatusView(frame: CGRect(x: 0, y: kScreenHeight-20, width: kScreenWidth, height: 20))
-        view.addSubview(_statusView)
         
         p_setBarHidden(false)
         
@@ -97,6 +107,8 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate, UIGestureRecognizer
         _topBar.showOrHide(isHidden: _isBarHidden, animated: animated) {
             self.setNeedsStatusBarAppearanceUpdate()
         }
+        
+        _bottomBar.showOrHide(isHidden: _isBarHidden, animated: animated, completion: nil)
     }
     
     private func p_updateRecord(chapter: Int, page: Int) {
