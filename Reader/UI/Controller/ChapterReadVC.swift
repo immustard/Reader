@@ -12,23 +12,11 @@ import UIKit
 class ChapterReadVC: BaseViewController, ReadTopBarDelegate, CatalogueViewDelegate, UIGestureRecognizerDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     // MARK: - Properties
-    private lazy var _pageVC: UIPageViewController = {
-        let vc = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        vc.delegate = self
-        vc.dataSource = self
-        
-        return vc
-    }()
-    
     private var _readView: ReadImplVC!
     
-    private var _topBar: ReadTopBar!
-    
-    private var _bottomBar: ReadToolBar!
+    private var _bottomBar: ReadToolBar = ReadToolBar()
     
     private var _catalogueView: CatalogueView!
-    
-    private var _statusView: CustomStatusView!
     
     private var _isBarHidden: Bool = true
     
@@ -52,36 +40,57 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate, CatalogueViewDelega
     
     var model: BookModel!
     
+    // MARK: - Lazy Load
+    private lazy var _pageVC: UIPageViewController = {
+        let vc = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+        vc.delegate = self
+        vc.dataSource = self
+        
+        return vc
+    }()
+    
+    private lazy var _statusView: CustomStatusView = {
+        let view = CustomStatusView(frame: CGRect(x: 0, y: kScreenHeight-20, width: kScreenWidth, height: 20))
+        
+        return view
+    }()
+    
+    private lazy var _chapterTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = ReadConfig.default.fontColor
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.adjustsFontSizeToFitWidth = true
+        
+        return label
+    }()
+
+    private lazy var _topBar: ReadTopBar = {
+        let view = ReadTopBar(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: kNavHeight))
+        view.delegate = self
+        
+        return view
+    }()
     
     // MARK: - Instance Methods
     override var prefersStatusBarHidden: Bool {
         return _isBarHidden
     }
     
-    override func initData() {
-        _chapter = model.record.chapter
-        _page = model.record.page
-    }
-    
     override func initView() {
         super.initView()
         
-        view.backgroundColor = UIColor.mst_colorWithHexString("66CCCC")
+        view.backgroundColor = UIColor.mst_colorWithHexString("#F0E5C9")
         navigationController?.setNavigationBarHidden(true, animated: false)
         
         addChild(_pageVC)
-        _pageVC.setViewControllers([p_readView(chapter: model.record.chapter, pageCount: model.record.page)], direction: .forward, animated: true, completion: nil)
         view.addSubview(_pageVC.view)
         
-        _statusView = CustomStatusView(frame: CGRect(x: 0, y: kScreenHeight-20, width: kScreenWidth, height: 20))
         view.addSubview(_statusView)
 
-        _topBar = ReadTopBar(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: kNavHeight))
-        _topBar.delegate = self
         _topBar.title = model.title
         view.addSubview(_topBar)
         
-        _bottomBar = ReadToolBar()
         view.addSubview(_bottomBar)
         _bottomBar.snp.makeConstraints { (make) in
             make.leading.trailing.equalTo(0)
@@ -89,11 +98,20 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate, CatalogueViewDelega
             make.top.equalTo(kScreenHeight)
         }
         
+        view.addSubview(_chapterTitleLabel)
+        _chapterTitleLabel.snp.makeConstraints { (make) in
+            make.leading.equalTo(8)
+            make.top.equalTo(kIsPhoneX ? kStatusHeight : 0)
+            make.height.equalTo(20)
+            make.trailing.equalTo(-8)
+        }
+        
         _catalogueView = CatalogueView(model: self.model)
         _catalogueView.delegate = self
         view.addSubview(_catalogueView)
         
         p_setBarHidden(false)
+        p_setViewController(chapter: model.record.chapter, page: model.record.page, completion: nil)
         
         let tap = view.mst_addTapGesture(target: self, action: #selector(p_tapAction(_:)))
         tap.delegate = self
@@ -142,11 +160,9 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate, CatalogueViewDelega
 
             let animated = false
             if p_calculatePage(isNext: _rightRect.contains(point)) {
-                _chapter = _chapterChange
-                _page = _pageChange
 //                _isTransition = true
                 // TODO: 翻页动画的时候, 快速点击有bug
-                _pageVC.setViewControllers([p_readView(chapter: _chapterChange, pageCount: _pageChange)], direction: _rightRect.contains(point) ? .forward : .reverse, animated: animated) { (finished) in
+                p_setViewController(chapter: _chapterChange, page: _pageChange) { (finished) in
                     if finished {
 //                        self._isTransition = false
                     }
@@ -201,6 +217,12 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate, CatalogueViewDelega
         }
         
         return true
+    }
+    
+    private func p_setViewController(chapter: Int, page: Int, completion: ((Bool) -> Void)?) {
+        _chapter = chapter
+        _page = page
+        _pageVC.setViewControllers([p_readView(chapter: chapter, pageCount: page)], direction: .forward, animated: false, completion: completion)
     }
 }
 
@@ -283,9 +305,7 @@ extension ChapterReadVC {
 // MARK: - CatalogueViewDelegate
 extension ChapterReadVC {
     func catalogueDidSelected(index idx: Int) {
-        _page = 0
-        _chapter = idx
-        _pageVC.setViewControllers([p_readView(chapter: _chapter, pageCount: _page)], direction: .forward, animated: false, completion: nil)
+        p_setViewController(chapter: idx, page: 0, completion: nil)
     }
 }
 

@@ -30,6 +30,8 @@ class ReadImplVC: BaseViewController {
     override func initView() {
         super.initView()
         
+        view.backgroundColor = .clear
+        _readView.backgroundColor = .clear
         view.addSubview(_readView)
     }
 }

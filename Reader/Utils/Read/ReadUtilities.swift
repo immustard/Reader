@@ -23,7 +23,7 @@ class ReadUtilities: NSObject {
 
             let path = ReadUtilities.save(content, bookID: bookID)
             
-            DispatchQueue.global().async {
+//            DispatchQueue.global().async {
                 separateChaters(content: content, bookID: bookID, bookName: bookName) { array in
                     let book = BookModel()
                     book.id = bookID
@@ -45,7 +45,7 @@ class ReadUtilities: NSObject {
                             completion!(book)
                         }
                     }
-                }
+//                }
             }
         }
     }
@@ -197,6 +197,7 @@ extension ReadUtilities {
         }
     }
     
+    /// 删除磁盘缓存
     class func deleteBookCache(_ bookID: Int) {
         if let path = bookFolder(bookID) {
             do {
@@ -205,6 +206,14 @@ extension ReadUtilities {
                 print("Delete book(\(bookID)) error: \(error)")
             }
         }
+    }
+    
+    /// 清除Inbox内容
+    class func clearInbox() {
+        let path = MSTTools.documentsPath()+"/Inbox"
+        do {
+            try MSTTools.deleteDirectory(path: path)
+        } catch {}
     }
 }
 

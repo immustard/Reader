@@ -23,17 +23,6 @@ class ReadView: UIView {
         }
     }
     
-    // MARK: - Initial Methods
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        backgroundColor = .white
-    }  
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     // MARK: - Instance Methods
     override func draw(_ rect: CGRect) {
         guard frameRef != nil else { return }
