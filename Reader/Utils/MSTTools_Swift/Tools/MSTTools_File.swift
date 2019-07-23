@@ -13,7 +13,7 @@ public enum MSTFileError: Error {
 }
 
 public extension MSTTools {
-
+    
     class func homePath() -> String {
         return NSHomeDirectory()
     }
@@ -53,10 +53,10 @@ public extension MSTTools {
 public extension MSTTools {
     class func fileLengh(path: String) -> Int64 {
         guard fileExist(path: path) else { return -1 }
-
+        
         do {
             let length = try FileManager.default.attributesOfItem(atPath: path)[.size] as! Int64
-
+            
             return length
         } catch {
             return -1
@@ -66,72 +66,60 @@ public extension MSTTools {
     class func fileSize(path: String) throws -> String? {
         guard fileExist(path: path) else { return nil }
         
-        do {
-            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
-
-            return ByteCountFormatter.string(fromByteCount: Int64(data.count), countStyle: .file)
-        } catch {
-            throw error
-        }
+        let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+        
+        return ByteCountFormatter.string(fromByteCount: Int64(data.count), countStyle: .file)
     }
     
 }
 
 public extension MSTTools {
-
+    
     class func fileExist(path: String) -> Bool {
         return FileManager.default.fileExists(atPath: path)
     }
     
     class func DirctoryExist(path: String) -> Bool {
         var isDirectory: ObjCBool = true
-
+        
         return FileManager.default.fileExists(atPath: path, isDirectory: &isDirectory)
     }
     
 }
 
 public extension MSTTools {
-
+    
     class func createFile(path: String) -> Bool {
         if fileExist(path: path) { return true }
-
+        
         return FileManager.default.createFile(atPath: path, contents: nil, attributes: nil)
     }
     
     class func createDirctory(path: String) throws {
         if DirctoryExist(path: path) { return }
         
-        do {
-            try FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
-        } catch {
-            throw error
-        }
+        try FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
     }
     
     class func deleteFile(path: String) throws {
-        do {
-            try FileManager.default.removeItem(atPath: path)
-        } catch {
-            throw error
-        }
+        try FileManager.default.removeItem(atPath: path)
     }
-
-    class func deleteDirctoryContents(path: String) throws {
+    
+    class func deleteDirectory(path: String) throws {
+        try FileManager.default.removeItem(atPath: path)
+    }
+    
+    class func deleteDirectoryContents(path: String) throws {
         var tmpPath = path
-
+        
         if !path.hasSuffix("/") {
             tmpPath += "/"
         }
-
-        do {
-            let arr = try FileManager.default.contentsOfDirectory(atPath: path)
-            
-            try arr.enumerated().forEach { (fileName) in
-                try deleteFile(path: tmpPath+fileName.element)
-            }
-        } catch {
-            throw error
+        
+        let arr = try FileManager.default.contentsOfDirectory(atPath: path)
+        
+        try arr.enumerated().forEach { (fileName) in
+            try deleteFile(path: tmpPath+fileName.element)
         }
     }
     
@@ -141,24 +129,15 @@ public extension MSTTools {
         }
         
         if fileExist(path: newPath) {
-            do {
-                try deleteFile(path: newPath)
-            } catch {
-                throw error
-            }
+            try deleteFile(path: newPath)
         }
         
-        do {
-            try FileManager.default.moveItem(atPath: oldPath, toPath: newPath)
-        } catch {
-            throw error
-        }
+        try FileManager.default.moveItem(atPath: oldPath, toPath: newPath)
     }
-
 }
 
 public extension MSTTools {
-
+    
     class func writeContentToFile(filePath path: String, content: String) {
         _ = createFile(path: path)
         
@@ -175,7 +154,7 @@ public extension MSTTools {
             let url = URL(fileURLWithPath: path)
             let data = try Data(contentsOf: url)
             let result = String(data: data, encoding: .utf8) ?? ""
-
+            
             return result
         } catch {
             return ""

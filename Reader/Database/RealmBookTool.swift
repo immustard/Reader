@@ -36,12 +36,15 @@ extension RealmBookTool {
             RealmChapterTool.delete(byBookID: id)
             // 删除对应阅读记录
             RealmRecordTool.delete(byBookID: id)
+            
+            // 删除对应文件缓存
+            ReadUtilities.deleteBookCache(id)
         }
     }
     
     class func deleteAll() {
         let list = queryAll()
-        
+
         for book in list {
             RealmBookTool.delete(byID: book.id)
         }

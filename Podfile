@@ -8,6 +8,9 @@ target 'Reader' do
   pod 'RealmSwift'
   pod 'RTRootNavigationController'
   pod 'SnapKit', '~> 5.0.0'
+  
+  pod 'MJRefresh'
+
   # Pods for Reader
 
 end

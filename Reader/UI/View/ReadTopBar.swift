@@ -16,7 +16,16 @@ protocol ReadTopBarDelegate: NSObjectProtocol {
 class ReadTopBar: UIView {
     
     // MARK: - Properties
-    var mDelegate: ReadTopBarDelegate?
+    var delegate: ReadTopBarDelegate?
+    
+    var title: String = "" {
+        didSet {
+            _titleLabel.text = self.title
+        }
+    }
+    
+    // MARK: - Lazy Load
+    private var _titleLabel: UILabel!
 
     // MARK: - Initial Methods
     override init(frame: CGRect) {
@@ -68,20 +77,36 @@ class ReadTopBar: UIView {
         let backBtn = UIButton(type: .custom)
         backBtn.setImage(#imageLiteral(resourceName: "back_dark"), for: .normal)
         backBtn.addTarget(self, action: #selector(p_backAction), for: .touchUpInside)
+        backBtn.imageEdgeInsets = UIEdgeInsets(top: 9, left: 9, bottom: 9, right: 9)
         addSubview(backBtn)
         
         backBtn.snp.makeConstraints { (make) in
-            make.bottom.equalTo(-12)
-            make.leading.equalTo(20)
+            make.bottom.equalTo(self)
+            make.leading.equalTo(8)
+            make.size.equalTo(CGSize(width: 44, height: 44))
         }
         
         let menuBtn = UIButton(type: .custom)
         menuBtn.setImage(#imageLiteral(resourceName: "catalogue_dark"), for: .normal)
         menuBtn.addTarget(self, action: #selector(p_menuAction), for: .touchUpInside)
+        menuBtn.imageEdgeInsets = UIEdgeInsets(top: 12, left: 9, bottom: 12, right: 9)
         addSubview(menuBtn)
         menuBtn.snp.makeConstraints { (make) in
             make.centerY.equalTo(backBtn)
-            make.trailing.equalTo(-20)
+            make.trailing.equalTo(-8)
+            make.size.equalTo(backBtn)
+        }
+        
+        _titleLabel = UILabel()
+        _titleLabel.font = UIFont.systemFont(ofSize: 18)
+        _titleLabel.textAlignment = .center
+        _titleLabel.textColor = kColor333
+        _titleLabel.adjustsFontSizeToFitWidth = true
+        addSubview(_titleLabel)
+        _titleLabel.snp.makeConstraints { (make) in
+            make.leading.equalTo(backBtn.snp_trailingMargin).offset(8)
+            make.centerY.equalTo(backBtn)
+            make.trailing.equalTo(menuBtn.snp_leadingMargin).offset(-20)
         }
         
         let line = UIView()
@@ -96,10 +121,10 @@ class ReadTopBar: UIView {
     
     // MARK: - Actions
     @objc private func p_backAction() {
-        mDelegate?.topBackAction()
+        delegate?.topBackAction()
     }
     
     @objc private func p_menuAction() {
-        mDelegate?.topMenuAction()
+        delegate?.topMenuAction()
     }
 }

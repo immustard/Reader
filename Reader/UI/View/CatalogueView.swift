@@ -8,9 +8,17 @@
 
 import UIKit
 
+protocol CatalogueViewDelegate: NSObjectProtocol {
+    func catalogueDidSelected(index idx: Int)
+}
+
 class CatalogueView: UIView, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
 
     // MARK: - Properties
+    var model: BookModel!
+
+    var delegate: CatalogueViewDelegate?
+    
     private let HeaderViewHeight: CGFloat = 100.0
 
     private var tableView: UITableView!
@@ -19,7 +27,6 @@ class CatalogueView: UIView, UITableViewDataSource, UITableViewDelegate, UIGestu
     
     private var CellID = "CatalogueViewCellID"
 
-    var model: BookModel!
     
     // MARK: - Initial Methods
     convenience init(model: BookModel) {
@@ -70,9 +77,6 @@ class CatalogueView: UIView, UITableViewDataSource, UITableViewDelegate, UIGestu
             hideAnimation()
         }
     }
-    
-    // MARK - Private Methods
-    
 }
 
 // MARK: - UITableViewDataSource & Delegate
@@ -91,6 +95,21 @@ extension CatalogueView {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+
+        hideAnimation()
+        delegate?.catalogueDidSelected(index: indexPath.row)
+    }
+}
+
+// MARK: - UIGestureRecognizerDelegate
+extension CatalogueView {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        let point = touch.location(in: tableView)
+        if tableView.bounds.contains(point) {
+            return false
+        }
+
+        return true
     }
 }
 

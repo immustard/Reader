@@ -106,7 +106,7 @@ extension ChapterModel {
         
         let mAttrString = NSMutableAttributedString(string: self.content)
         
-        let attribute = ReadParser.getAttribute()
+        let attribute = ReadConfig.default.contentAttribute
         mAttrString.setAttributes(attribute, range: NSRange(location: 0, length: mAttrString.length))
         
         let frameSetter = CTFramesetterCreateWithAttributedString(mAttrString)

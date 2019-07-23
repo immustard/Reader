@@ -12,11 +12,11 @@ class ReadConfig: NSObject {
     static let `default` = ReadConfig()
     
     // MARK: - Properties
-    var fontSize: CGFloat = 16
-    var lineSpace: CGFloat = 8
+    var fontSize: CGFloat = 20
+    var lineSpace: CGFloat = 15
     var fontColor: UIColor = kColor333
 
-    var topSpacing: CGFloat = 40.0
+    var topSpacing: CGFloat = kIsPhoneX ? kStatusHeight+20 : kStatusHeight
     var bottomSpacing: CGFloat = 40.0
     var leftSpacing: CGFloat = 20.0
     var rightSpacing: CGFloat = 20.0
@@ -29,6 +29,19 @@ class ReadConfig: NSObject {
         let height = kScreenHeight-ReadConfig.default.topSpacing-ReadConfig.default.bottomSpacing
         
         return CGRect(x: left, y: top, width: width, height: height)
+    }
+    
+    var contentAttribute: Dictionary<NSAttributedString.Key, Any> {
+        var dic: Dictionary<NSAttributedString.Key, Any> = [:]
+        dic[NSAttributedString.Key.font] = UIFont.systemFont(ofSize: self.fontSize)
+        dic[NSAttributedString.Key.foregroundColor] = self.fontColor
+        
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.lineSpacing = self.lineSpace
+        paragraph.alignment = .justified
+        dic[NSAttributedString.Key.paragraphStyle] = paragraph
+        
+        return dic
     }
     
     // MARK: - Initial Methods

@@ -9,9 +9,11 @@
 import UIKit
 
 class ReadUtilities: NSObject {
-    class func localBookModel(byURL url: URL, completion:@escaping ((BookModel) -> Void)) {
+    class func localBookModel(byURL url: URL, completion:((BookModel) -> Void)?) {
         if let model = RealmBookTool.query(byResource: url.path) {
-            completion(model)
+            if completion != nil {
+                completion!(model)
+            }
         } else {
             let content = ReadUtilities.encode(url: url)
 
@@ -21,27 +23,30 @@ class ReadUtilities: NSObject {
 
             let path = ReadUtilities.save(content, bookID: bookID)
             
-            separateChaters(content: content, bookID: bookID, bookName: bookName) { array in
-                /// 保存章节
-                RealmChapterTool.insert(array)
-                
-                let book = BookModel()
-                book.id = bookID
-                book.title = "mdjyml"
-                book.resource = url.path
-                book.chapterArray = array
-                book.content = content
-                book.cachePath = path
-
-                /// 保存阅读记录
-                RealmRecordTool.updateRecord(book.record)
-
-                /// 保存书目
-                RealmBookTool.insert(book)
-
-                completion(book)
+            DispatchQueue.global().async {
+                separateChaters(content: content, bookID: bookID, bookName: bookName) { array in
+                    let book = BookModel()
+                    book.id = bookID
+                    book.title = bookName ?? "未命名"
+                    book.resource = url.path
+                    book.chapterArray = array
+                    book.content = content
+                    book.cachePath = path
+                    
+                    DispatchQueue.main.async {
+                        /// 保存章节
+                        RealmChapterTool.insert(array)
+                        /// 保存阅读记录
+                        RealmRecordTool.updateRecord(book.record)
+                        /// 保存书目
+                        RealmBookTool.insert(book)
+                        
+                        if completion != nil {
+                            completion!(book)
+                        }
+                    }
+                }
             }
-
         }
     }
     
@@ -190,7 +195,16 @@ extension ReadUtilities {
         } else {
             return ""
         }
-
+    }
+    
+    class func deleteBookCache(_ bookID: Int) {
+        if let path = bookFolder(bookID) {
+            do {
+                try MSTTools.deleteDirectory(path: path)
+            } catch {
+                print("Delete book(\(bookID)) error: \(error)")
+            }
+        }
     }
 }
 

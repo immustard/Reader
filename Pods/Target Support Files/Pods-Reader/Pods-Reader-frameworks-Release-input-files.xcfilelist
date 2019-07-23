@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-Reader/Pods-Reader-frameworks.sh
+${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework
 ${BUILT_PRODUCTS_DIR}/RTRootNavigationController/RTRootNavigationController.framework
 ${BUILT_PRODUCTS_DIR}/Realm/Realm.framework
 ${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework

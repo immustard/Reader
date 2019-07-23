@@ -31,6 +31,6 @@ public extension MSTTools {
     class func clearLog() {
         let path = MSTTools.cachePath() + "Log"
         
-        try! deleteDirctoryContents(path: path)
+        try! deleteDirectoryContents(path: path)
     }
 }

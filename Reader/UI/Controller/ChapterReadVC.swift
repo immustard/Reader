@@ -9,7 +9,7 @@
 
 import UIKit
 
-class ChapterReadVC: BaseViewController, ReadTopBarDelegate, UIGestureRecognizerDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+class ChapterReadVC: BaseViewController, ReadTopBarDelegate, CatalogueViewDelegate, UIGestureRecognizerDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     // MARK: - Properties
     private lazy var _pageVC: UIPageViewController = {
@@ -66,6 +66,7 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate, UIGestureRecognizer
     override func initView() {
         super.initView()
         
+        view.backgroundColor = UIColor.mst_colorWithHexString("66CCCC")
         navigationController?.setNavigationBarHidden(true, animated: false)
         
         addChild(_pageVC)
@@ -76,7 +77,8 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate, UIGestureRecognizer
         view.addSubview(_statusView)
 
         _topBar = ReadTopBar(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: kNavHeight))
-        _topBar.mDelegate = self
+        _topBar.delegate = self
+        _topBar.title = model.title
         view.addSubview(_topBar)
         
         _bottomBar = ReadToolBar()
@@ -88,6 +90,7 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate, UIGestureRecognizer
         }
         
         _catalogueView = CatalogueView(model: self.model)
+        _catalogueView.delegate = self
         view.addSubview(_catalogueView)
         
         p_setBarHidden(false)
@@ -274,6 +277,15 @@ extension ChapterReadVC {
     
     func topMenuAction() {
         _catalogueView.showAnimation()
+    }
+}
+
+// MARK: - CatalogueViewDelegate
+extension ChapterReadVC {
+    func catalogueDidSelected(index idx: Int) {
+        _page = 0
+        _chapter = idx
+        _pageVC.setViewControllers([p_readView(chapter: _chapter, pageCount: _page)], direction: .forward, animated: false, completion: nil)
     }
 }
 

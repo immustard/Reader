@@ -1,4 +1,5 @@
 PODS:
+  - MJRefresh (3.2.0)
   - Realm (3.17.1):
     - Realm/Headers (= 3.17.1)
   - Realm/Headers (3.17.1)
@@ -10,23 +11,26 @@ PODS:
   - SnapKit (5.0.0)
 
 DEPENDENCIES:
+  - MJRefresh
   - RealmSwift
   - RTRootNavigationController
   - SnapKit (~> 5.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - MJRefresh
     - Realm
     - RealmSwift
     - RTRootNavigationController
     - SnapKit
 
 SPEC CHECKSUMS:
+  MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   Realm: c204f1a890f07dea43b14132a6aad118c054b8f2
   RealmSwift: 4d3c9233544b9cd08a8913e0872b9038eb99b054
   RTRootNavigationController: afa6913402be26f8326f7f37fc1550aa67baddcc
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
 
-PODFILE CHECKSUM: 30f978b4c98053211208afc6cced6acc54fbb2c8
+PODFILE CHECKSUM: c3f5ad7fbe57ab7a2127fb7ad485fd556eb955fa
 
 COCOAPODS: 1.7.4
