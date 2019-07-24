@@ -23,7 +23,7 @@ class ReadUtilities: NSObject {
 
             let path = ReadUtilities.save(content, bookID: bookID)
             
-            DispatchQueue.global().async {
+            MSTTools.doTaskAsyncInGlobal {
                 separateChaters(content: content, bookID: bookID, bookName: bookName) { array in
                     let book = BookModel()
                     book.id = bookID
@@ -33,7 +33,7 @@ class ReadUtilities: NSObject {
                     book.content = content
                     book.cachePath = path
                     
-                    DispatchQueue.main.async {
+                    MSTTools.doTaskAsynInMain {
                         /// 保存章节
                         RealmChapterTool.insert(array)
                         /// 保存阅读记录

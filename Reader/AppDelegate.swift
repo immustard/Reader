@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         ReadUtilities.localBookModel(byURL: url) { (book) in
-            DispatchQueue.global().async {
+            MSTTools.doTaskAsyncInGlobal {
                 ReadUtilities.clearInbox()
             }
         }

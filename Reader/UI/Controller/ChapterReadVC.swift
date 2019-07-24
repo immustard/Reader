@@ -109,6 +109,10 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate, CatalogueViewDelega
         _catalogueView = CatalogueView(model: self.model)
         _catalogueView.delegate = self
         view.addSubview(_catalogueView)
+        _catalogueView.snp.makeConstraints { (make) in
+            make.leading.top.bottom.equalTo(0)
+            make.trailing.equalTo(kScreenWidth)     // 目的为了消失动画
+        }
         
         view.bringSubviewToFront(_topBar)
         view.bringSubviewToFront(_bottomBar)
@@ -117,8 +121,7 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate, CatalogueViewDelega
         p_setBarHidden(false)
         p_setViewController(chapter: model.record.chapter, page: model.record.page, completion: nil)
         
-        let tap = view.mst_addTapGesture(target: self, action: #selector(p_tapAction(_:)))
-        tap.delegate = self
+        p_addGestures()
     }
     
     override func viewDidLayoutSubviews() {
@@ -145,13 +148,25 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate, CatalogueViewDelega
         record.chapter = chapter
         
         RealmRecordTool.updateRecord(record)
+        
+        // 设置章节名
+        _chapterTitleLabel.text = model.chapterArray[chapter].title
+    }
+    
+    /// 添加手势
+    private func p_addGestures() {
+        // 点击->菜单
+        let tap = view.mst_addTapGesture(target: self, action: #selector(p_tapAction(_:)))
+        tap.delegate = self
+        
+        // TODO: 滑动展示目录
+        // 滑动->目录
+        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(p_swipeAction(_:)))
+        swipe.delegate = self
+//        view.addGestureRecognizer(swipe)
     }
     
     // MARK: - Actions
-    override func backAction() {
-        
-    }
-    
     @objc private func p_tapAction(_ gesture: UITapGestureRecognizer) {
         let point = gesture.location(in: view)
 
@@ -177,6 +192,11 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate, CatalogueViewDelega
                 p_updateRecord(chapter: _chapter, page: _page)
             }
         }
+    }
+    
+    @objc private func p_swipeAction(_ gesture: UISwipeGestureRecognizer) {
+        let dir = gesture.direction
+        print(dir)
     }
     
     private func p_readView(chapter: Int, pageCount: Int) -> ReadImplVC {
@@ -227,9 +247,6 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate, CatalogueViewDelega
         _chapter = chapter
         _page = page
         _pageVC.setViewControllers([p_readView(chapter: chapter, pageCount: page)], direction: .forward, animated: false, completion: completion)
-        
-        // 设置章节名
-        _chapterTitleLabel.text = model.chapterArray[chapter].title
         
         // 记录阅读进度
         p_updateRecord(chapter: chapter, page: page)
@@ -293,6 +310,10 @@ extension ChapterReadVC {
 // MARK: - UIGestureRecognizerDelegate
 extension ChapterReadVC {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if gestureRecognizer is UISwipeGestureRecognizer {
+            return false
+        }
+
         if touch.view!.isDescendant(of: _catalogueView) {
             return false
         } else {

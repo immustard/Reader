@@ -32,6 +32,7 @@
 		D30E4D6D22DD674400B5D4DA /* UIView_MST.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D6522DD674400B5D4DA /* UIView_MST.swift */; };
 		D30E4D7222DD68CB00B5D4DA /* RealmBookTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30E4D7122DD68CB00B5D4DA /* RealmBookTool.swift */; };
 		D318A0E522DDB738004C2FE0 /* RealmChapterTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D318A0E422DDB738004C2FE0 /* RealmChapterTool.swift */; };
+		D334D78322E82D0600FAF2B2 /* MSTTools_Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = D334D78222E82D0600FAF2B2 /* MSTTools_Thread.swift */; };
 		D34A4F5A22E59B1500B1001B /* RealmRecordTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34A4F5922E59B1500B1001B /* RealmRecordTool.swift */; };
 		D34A4F5E22E5FE2D00B1001B /* ReadToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34A4F5D22E5FE2D00B1001B /* ReadToolBar.swift */; };
 		D34A8B8022E1539C007C05A4 /* MSTTools_Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34A8B7F22E1539C007C05A4 /* MSTTools_Device.swift */; };
@@ -77,6 +78,7 @@
 		D30E4D6522DD674400B5D4DA /* UIView_MST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView_MST.swift; sourceTree = "<group>"; };
 		D30E4D7122DD68CB00B5D4DA /* RealmBookTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBookTool.swift; sourceTree = "<group>"; };
 		D318A0E422DDB738004C2FE0 /* RealmChapterTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmChapterTool.swift; sourceTree = "<group>"; };
+		D334D78222E82D0600FAF2B2 /* MSTTools_Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSTTools_Thread.swift; sourceTree = "<group>"; };
 		D34A4F5922E59B1500B1001B /* RealmRecordTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRecordTool.swift; sourceTree = "<group>"; };
 		D34A4F5D22E5FE2D00B1001B /* ReadToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadToolBar.swift; sourceTree = "<group>"; };
 		D34A8B7F22E1539C007C05A4 /* MSTTools_Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSTTools_Device.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				D30E4D5F22DD674400B5D4DA /* MSTTools_File.swift */,
 				D30E4D6022DD674400B5D4DA /* MSTTools_Date.swift */,
 				D34A8B7F22E1539C007C05A4 /* MSTTools_Device.swift */,
+				D334D78222E82D0600FAF2B2 /* MSTTools_Thread.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				D30E4D4A22DD5D9D00B5D4DA /* BookModel.swift in Sources */,
 				D30E4D6722DD674400B5D4DA /* MSTTools_Log.swift in Sources */,
 				D30E4D5A22DD65EC00B5D4DA /* ViewController.swift in Sources */,
+				D334D78322E82D0600FAF2B2 /* MSTTools_Thread.swift in Sources */,
 				D30E4D6D22DD674400B5D4DA /* UIView_MST.swift in Sources */,
 				D35599E922E014B00042C133 /* CatalogueView.swift in Sources */,
 				D36AEF4F22DEBD16009AE08A /* ReadView.swift in Sources */,
@@ -592,7 +596,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LB9Z2Q6D4D;
 				INFOPLIST_FILE = "$(SRCROOT)/Reader/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -615,7 +619,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LB9Z2Q6D4D;
 				INFOPLIST_FILE = "$(SRCROOT)/Reader/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -17,5 +17,8 @@ let ReadTypeUnkown = 0
 let ReadTypeTxt = 1
 let ReadTypeEpub = 2
 
+/// 主题色
+let kThemeColor: UIColor = AppConfig.default.themeColor()
+
 // MARK: - 通知
 let kNCDidSelectChapter = "kNCDidSelectChapter"

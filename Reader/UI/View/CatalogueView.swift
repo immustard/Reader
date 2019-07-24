@@ -12,6 +12,10 @@ protocol CatalogueViewDelegate: NSObjectProtocol {
     func catalogueDidSelected(index idx: Int)
 }
 
+private let HeaderViewHeight: CGFloat = kStatusHeight//+100.0
+private let AnimationViewLeading: CGFloat = 100.0
+private var CellID = "CatalogueViewCellID"
+
 class CatalogueView: UIView, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
 
     // MARK: - Properties
@@ -19,57 +23,117 @@ class CatalogueView: UIView, UITableViewDataSource, UITableViewDelegate, UIGestu
 
     var delegate: CatalogueViewDelegate?
     
-    private let HeaderViewHeight: CGFloat = 100.0
 
-    private var tableView: UITableView!
+    private let bgView: UIVisualEffectView = {
+        let effect = UIBlurEffect(style: .dark)
+        let view = UIVisualEffectView(effect: effect)
+        view.alpha = 0
+
+        return view
+    }()
     
-    private var headerView: UIView!
+    private let animationView: UIView = {
+        let view = UIView()
+        
+        return view
+    }()
     
-    private var CellID = "CatalogueViewCellID"
+    private let tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .plain)
+        tableView.tableFooterView = UIView()
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
+        tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: CellID)
+
+        return tableView
+    }()
+    
+    private let headerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        
+        return view
+    }()
+    
+    private let headerLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 24)
+        label.numberOfLines = 2
+        label.adjustsFontSizeToFitWidth = true
+        
+        return label
+    }()
+    
 
     
     // MARK: - Initial Methods
     convenience init(model: BookModel) {
-        self.init(frame: CGRect(x: kScreenWidth, y: 0, width: kScreenWidth, height: kScreenHeight))
+        self.init(frame: CGRect.zero)
         
+        self.isHidden = true
         self.model = model
         
-        backgroundColor = kColor333.withAlphaComponent(0.4)
+        addSubview(bgView)
+        bgView.snp.makeConstraints { (make) in
+            make.edges.equalTo(0)
+        }
         
-        tableView = UITableView(frame: CGRect(x: 100, y: kNavHeight+HeaderViewHeight, width: kScreenWidth-100, height: kScreenHeight-kNavHeight-HeaderViewHeight), style: .plain)
-//        tableView.sectionHeaderHeight = 0.1
-        tableView.tableFooterView = UIView()
-        tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: CellID)
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
+        addSubview(animationView)
+        animationView.snp.makeConstraints { (make) in
+            make.leading.equalTo(kScreenWidth)
+            make.top.bottom.trailing.equalTo(0)
+        }
+        
+        animationView.addSubview(headerView)
+        headerView.snp.makeConstraints { (make) in
+            make.leading.top.trailing.equalTo(animationView)
+            make.height.equalTo(HeaderViewHeight)
+        }
+        
         tableView.dataSource = self
         tableView.delegate = self
-        addSubview(tableView)
-        
-        headerView = UIView(frame: CGRect(x: tableView.mst_left, y: 0, width: tableView.mst_width, height: kNavHeight+HeaderViewHeight))
-        headerView.backgroundColor = .orange
-        addSubview(headerView)
+        animationView.addSubview(tableView)
+        tableView.snp.makeConstraints { (make) in
+            make.top.equalTo(headerView.snp.bottom)
+            make.leading.bottom.trailing.equalTo(animationView)
+        }
     
         let tap = mst_addTapGesture(target: self, action: #selector(tapAction(_:)))
         tap.delegate = self
     }
 
     // MARK: - Instance Methods
-    // TODO: 完善动画
     func showAnimation() {
+        // 定位tableView位置
+        tableView.reloadData()
+        tableView.scrollToRow(at: IndexPath(row: model.record.chapter, section: 0), at: .middle, animated: false)
+
+        self.isHidden = false
         UIView.animate(withDuration: kShowAnimationDuration, animations: {
-            self.mst_left = 0
+            self.animationView.snp.updateConstraints({ (make) in
+                make.leading.equalTo(AnimationViewLeading)
+            })
+            
+            self.bgView.alpha = 0.5
+            self.layoutSubviews()
         })
     }
     
     func hideAnimation() {
         UIView.animate(withDuration: kShowAnimationDuration, animations: {
-            self.mst_left = kScreenWidth
-        })
+            self.animationView.snp.updateConstraints({ (make) in
+                make.leading.equalTo(kScreenWidth)
+            })
+            
+            self.bgView.alpha = 0
+            self.layoutSubviews()
+        }) { (finished) in
+            self.isHidden = true
+        }
     }
     
     // MARK: - Actions
     @objc private func tapAction(_ gesture: UITapGestureRecognizer) {
-        // FIXME: 解决tap响应问题
         let tableViewPoint = gesture.location(in: tableView)
         let headerViewPoint = gesture.location(in: headerView)
         
@@ -89,6 +153,9 @@ extension CatalogueView {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellID)!
         cell.textLabel?.text = model.chapterArray[indexPath.row].title
         cell.selectionStyle = .none
+
+        // 判断当前章节
+        cell.textLabel?.textColor = (indexPath.row == model.record.chapter) ? kThemeColor : kColor333
 
         return cell
     }

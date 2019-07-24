@@ -6,7 +6,6 @@
 import UIKit
 
 // MARK: - device
-// TODO: 这里有没有更好的办法, 降低版本要求
 var kIsPhoneX: Bool {
     return MSTTools.isIphoneX()
 }

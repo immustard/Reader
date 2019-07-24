@@ -17,4 +17,17 @@ public extension MSTTools {
         return UIDevice.current.systemVersion
     }
     
+    // MARK: - Class Methods
+    class func isIphoneX() -> Bool {
+        return MSTTools.shared.p_isIphoneX()
+    }
+    
+    // MARK - Private Methods
+    private func p_isIphoneX() -> Bool {
+        if #available(iOS 11.0, *) {
+            return self.ad?.window??.safeAreaInsets != UIEdgeInsets.zero
+        } else {
+            return false
+        }
+    }
 }

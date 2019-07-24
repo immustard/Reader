@@ -9,5 +9,9 @@
 import UIKit
 
 class AppConfig: NSObject {
+    static let `default` = AppConfig()
     
+    func themeColor() -> UIColor {
+        return UIColor.mst_colorWithHexString("#99CCCD")
+    }
 }

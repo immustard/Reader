@@ -12,20 +12,12 @@ public class MSTTools: NSObject {
     static let shared: MSTTools = {
         let tool = MSTTools()
         
-        DispatchQueue.main.async {
-            tool._ad = UIApplication.shared.delegate
+        MSTTools.doTaskAsynInMain {
+            tool.ad = UIApplication.shared.delegate
         }
         
         return tool
     }()
     
-    private var _ad: UIApplicationDelegate?
-
-    class func isIphoneX() -> Bool {
-        return MSTTools.shared.p_isIphoneX()
-    }
-    
-    private func p_isIphoneX() -> Bool {
-        return _ad?.window??.safeAreaInsets != UIEdgeInsets.zero
-    }
+    var ad: UIApplicationDelegate?
 }
