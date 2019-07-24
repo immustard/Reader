@@ -17,6 +17,7 @@ class ReadConfig: NSObject {
     var fontColor: UIColor = kColor333
 
     var topSpacing: CGFloat = kIsPhoneX ? kStatusHeight+20 : kStatusHeight
+//    var topSpacing: CGFloat = 40.0
     var bottomSpacing: CGFloat = 40.0
     var leftSpacing: CGFloat = 20.0
     var rightSpacing: CGFloat = 20.0

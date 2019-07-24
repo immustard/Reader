@@ -23,7 +23,7 @@ class ReadUtilities: NSObject {
 
             let path = ReadUtilities.save(content, bookID: bookID)
             
-//            DispatchQueue.global().async {
+            DispatchQueue.global().async {
                 separateChaters(content: content, bookID: bookID, bookName: bookName) { array in
                     let book = BookModel()
                     book.id = bookID
@@ -45,7 +45,7 @@ class ReadUtilities: NSObject {
                             completion!(book)
                         }
                     }
-//                }
+                }
             }
         }
     }

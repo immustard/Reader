@@ -102,7 +102,7 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate, CatalogueViewDelega
         _chapterTitleLabel.snp.makeConstraints { (make) in
             make.leading.equalTo(8)
             make.top.equalTo(kIsPhoneX ? kStatusHeight : 0)
-            make.height.equalTo(20)
+            make.height.equalTo(16)
             make.trailing.equalTo(-8)
         }
         
@@ -110,6 +110,10 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate, CatalogueViewDelega
         _catalogueView.delegate = self
         view.addSubview(_catalogueView)
         
+        view.bringSubviewToFront(_topBar)
+        view.bringSubviewToFront(_bottomBar)
+        view.bringSubviewToFront(_catalogueView)
+
         p_setBarHidden(false)
         p_setViewController(chapter: model.record.chapter, page: model.record.page, completion: nil)
         
@@ -223,6 +227,12 @@ class ChapterReadVC: BaseViewController, ReadTopBarDelegate, CatalogueViewDelega
         _chapter = chapter
         _page = page
         _pageVC.setViewControllers([p_readView(chapter: chapter, pageCount: page)], direction: .forward, animated: false, completion: completion)
+        
+        // 设置章节名
+        _chapterTitleLabel.text = model.chapterArray[chapter].title
+        
+        // 记录阅读进度
+        p_updateRecord(chapter: chapter, page: page)
     }
 }
 
